@@ -9,4 +9,4 @@ const userSchema = new Schema({
   mobile: String,
 });
 
-export const user = model<Users>(IDatabaseSchema.USER, userSchema);
+export const UserModel = model<Users>(IDatabaseSchema.USER, userSchema);

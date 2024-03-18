@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
-import { Users } from "../types/users";
 import { IDatabaseSchema } from "../interfaces/IDatabaseSchema";
+import { Tours } from "../types/tours";
 
 const tourSchema = new Schema({
   name: String,
@@ -8,7 +8,7 @@ const tourSchema = new Schema({
   durationInDays: Number,
   description: String,
   highlights: [String],
-  // plans: [planSchema],
+  plans: { type: Schema.Types.ObjectId, ref: IDatabaseSchema.PLANS },
 });
 
-export const user = model<Users>(IDatabaseSchema.TOUR, tourSchema);
+export const TourModel = model<Tours>(IDatabaseSchema.TOUR, tourSchema);
