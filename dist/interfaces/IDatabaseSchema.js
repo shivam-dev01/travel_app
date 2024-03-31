@@ -4,8 +4,10 @@ exports.IDatabaseSchema = void 0;
 var IDatabaseSchema;
 (function (IDatabaseSchema) {
     IDatabaseSchema["USER"] = "USER";
-    IDatabaseSchema["TOUR"] = "TOUR";
-    IDatabaseSchema["FACILITY"] = "FACILITY";
-    IDatabaseSchema["PLANS"] = "PLANS";
-    IDatabaseSchema["SIGHT"] = "SIGHT";
+    IDatabaseSchema["DESTINATION"] = "DESTINATION";
+    IDatabaseSchema["BANNER"] = "BANNER";
+    IDatabaseSchema["TESTIMONIAL"] = "TESTIMONIAL";
+    IDatabaseSchema["TRIP_DETAILS"] = "TRIPDETAILS";
+    IDatabaseSchema["POLICY_DETAILS"] = "POLICYDETAILS";
+    IDatabaseSchema["ITINERY_DETAILS"] = "ITINERYDETAILS";
 })(IDatabaseSchema || (exports.IDatabaseSchema = IDatabaseSchema = {}));
