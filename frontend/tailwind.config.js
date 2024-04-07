@@ -6,6 +6,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    colors: {
+      grayCustom: "#F2EEE9",
+      white: "#ffffff",
+      black: "#000000",
+      grayCustom: "#F2EEE9",
+      skyBule: "#3B9AA4",
+      skyBlue100: "#ECF5F6",
+      pinkCustom: "#F2E6D7",
+    },
   },
   plugins: [
     plugin(function ({ addBase, theme }) {

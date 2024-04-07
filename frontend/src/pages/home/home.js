@@ -3,6 +3,10 @@ import "./home.css";
 import { axiosInstance } from "../../api/axiosIntance";
 import { apiEndPoints } from "../../constants/apiEndPoints";
 import { replaceUrl } from "../../utils/replaceUrl";
+import { howWeWork, testimonialnData } from "../../constants/staticData";
+import { Link } from "react-router-dom";
+import Inspiration from "../../components/inspiration/inspiration";
+import Testimonials from "../../components/testimonial/testimonial";
 
 export default function Home() {
   const [bannerData, setBannerData] = useState([]);
@@ -54,7 +58,7 @@ export default function Home() {
 
   // console.log("-------HOMEbANNER-----", homeBanner);
 
-  console.log("-------welcomeBanner-----", welcomeBanner.length);
+  console.log("-------chooseBanner-----", chooseBanner);
 
   // console.log("-------destinationBanner-----", destinationBanner);
 
@@ -127,6 +131,78 @@ export default function Home() {
           );
         })}
       </div>
+
+      <div className="mt-16">
+        <h1 className="extraBoldFontFamily text-center text-3xl mb-7">
+          How we work
+        </h1>
+        <div className="flex justify-between">
+          {howWeWork.map((item) => {
+            return (
+              <div className="pl-5 pb-5 w-[325px] h-[185px] flex flex-col justify-end rounded-xl bg-grayCustom">
+                <img src={item.icon} className="w-5 h-5 mb-[14px]" />
+                <div className="boldFontFamily text-sm text-black  mb-4">
+                  {item.header}
+                </div>
+                <Link className="boldFontFamily text-xs text-black cursor-pointer">
+                  {item.subHeader}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center mt-20 mb-11">
+        <h1 className="extraBoldFontFamily text-center text-3xl mb-5">
+          Why Choose us?
+        </h1>
+        <p className="regularFontFamily text-base text-black max-w-[868px]">
+          Planning a trip can be overwhelming, but with trippkaro.com, you can
+          relax and enjoy the process. Here are a few reasons why you should
+          choose us for all your travel needs
+        </p>
+      </div>
+
+      <div className="bg-skyBlue100 rounded-lg">
+        {chooseBanner.map((item, index) => {
+          return (
+            <div className="flex justify-between p-8">
+              <div className="w-[50%] pl-16 pr-16 flex flex-col justify-center">
+                <p className="meduimFontFamily text-xs text-black">
+                  {item.topHeader}
+                </p>
+                <h1 className="extraBoldFontFamily text-3xl text-black mt-5">
+                  {item.header}
+                </h1>
+                <p className="regularFontFamily text-sm text-black mt-5">
+                  {item.subHeader}
+                </p>
+
+                <div className="mt-5">
+                  <button className="meduimFontFamily  bg-skyBule text-white rounded-full w-[111px] h-[38px]">
+                    {item.ctaPrimary}
+                  </button>
+
+                  <button className="meduimFontFamily text-black rounded-full w-[111px] h-[38px] ml-5 border">
+                    {item.ctaSecondary}
+                  </button>
+                </div>
+              </div>
+              <div className="w-[50%] p-33 h-[551px] rounded-3xl">
+                <img
+                  src={item.file}
+                  className="w-[100%] h-[100%] rounded-3xl"
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <Inspiration />
+
+      <Testimonials data={testimonialnData} />
     </div>
   );
 }

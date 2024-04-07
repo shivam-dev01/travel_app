@@ -3,7 +3,6 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { routes } from "../constants/routes";
 import logoImage from "../assets/image/tippKaroLogo.png";
-import FillButton from "../components/buttons/fillButton";
 
 export default function Header() {
   const [menu, setMenu] = useState(routes);
