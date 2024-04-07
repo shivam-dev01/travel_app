@@ -1,0 +1,11 @@
+.footerBody{
+    height: 400px;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+.sec-cont{
+    height: 50px;
+    background-color:#F2E6D7;
+    display: flex;
+    justify-content: center;
+}
