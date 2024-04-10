@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     flex: auto;
-    height: 600px;
+    height: 545px;
     border-radius: 24px;
     overflow: hidden;
   }
@@ -75,14 +75,12 @@
     margin-top: 32px;
   }
   
-  .middleContentBody {
+  .middleContactContentBody {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 400px;
-    margin-top: 30px;
-    padding-top: 10px;
+    height: 500px;
+    margin-top: 80px;
   }
   
   .contentDesc {

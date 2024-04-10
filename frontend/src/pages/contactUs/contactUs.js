@@ -13,22 +13,22 @@ export default function ContactUs() {
         <div className="contactBanner">
           <img src={banner} alt="Home" className="contactImageBanner" />
           <div className="contactContent">
-            <p className="contactsubHeaderText">
+            {/* <p className="contactsubHeaderText ">
               We understand that planning a trip can be overwhelming, which is
               why we’ve made it our mission tomake it easy and enjoyable for
               you. Our website trippkaro.com is packed with useful tips,
               recommendations, and insider information to help you get the most
               out of your travels.{" "}
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
 
-      <div className="middleContentBody">
+      <div className="middleContactContentBody ">
         <div className="first-cont flex flex-row justify-between ">
-          <div className="heading  w-[600px] pl-10 py-5 pr-10 border-2 border-[#3B9AA4] rounded-xl">
-            <h1 className="heading text-xl font-medium">Reach Us</h1>
-            <p className="heading text-xs mt-5">
+          <div className="heading   p-[40px]  w-[44%]  border-2 border-[#3B9AA4] rounded-xl">
+            <h1 className="heading  extraBoldFontFamily text-[44px] text-[#1C1C1C] leading-[66px]">Reach Us</h1>
+            <p className="text-hed regularFontFamily text-[16px] leading-[24px] text-[#666666] mt-5">
               We at trippkaro.com understand all of your tour and travelling
               needs and provide packages for different domestic and
               international destination to make your TOUR one of a kind
@@ -36,44 +36,44 @@ export default function ContactUs() {
             </p>
             <div className="contactUs mt-5 flex justify-between">
               <ul className="w-full">
-                <li className="list w-full flex h-[40px]">
-                  <img className="" src={location}></img>
-                  <h1 className="text-[#3B9AA4] text-lg font-semibold ml-10">
+                <li className="list w-full flex h-[55px] ">
+                  <img className="img h-[54px] w-[54px]" src={location}></img>
+                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
                     Sector 62, Noida
                   </h1>
                 </li>
-                <li className="list w-full flex h-[40px] mt-5">
-                  <img className="" src={phone}></img>
-                  <h1 className="text-[#3B9AA4] text-lg font-semibold ml-10">
+                <li className="list w-full flex h-[55px]  mt-5">
+                  <img className="img h-[54px] w-[54px]" src={phone}></img>
+                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
                     Sector 62, Noida
                   </h1>
                 </li>
-                <li className="list w-full flex h-[40px] mt-5">
-                  <img className="" src={message}></img>
-                  <h1 className="text-[#3B9AA4] text-lg font-semibold ml-10">
+                <li className="list w-full flex h-[55px] mt-5">
+                  <img className="img h-[54px] w-[54px]" src={message}></img>
+                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
                     operations@trippkaro.com
                   </h1>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="form  px-[75px] py-5 w-[600px] ml-28 border-2 border-[#3B9AA4] rounded-xl ">
-            <div className="form-div  h-full ">
+          <div className="form  flex justify-center pt-[75px] w-[54%]  border-2 border-[#3B9AA4] rounded-xl ">
+            <div className="form-div h-[362px] ps-4 w-[479px]">
               <h2>Drop Us Your Basic Details We Will Connect You?</h2>
               <input
-                className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg"
+                className="bg-[#EFEFEF] p-3 w-[100%] mt-6 rounded-lg"
                 placeholder="FullName"
               ></input>
               <input
-                className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg"
+                className="bg-[#EFEFEF] p-3 w-[100%] mt-6 rounded-lg"
                 placeholder="Email"
               ></input>
               <input
-                className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg"
+                className="bg-[#EFEFEF] p-3 w-[100%] mt-6 rounded-lg"
                 placeholder="Phone"
               ></input>
 
-              <button className="bg-[#3B9AA4] p-2 w-full mt-5 rounded-3xl text-[#fff]">
+              <button className="bg-[#3B9AA4] p-2 w-[100%] mt-8 rounded-3xl text-[#fff]">
                 Submit
               </button>
             </div>
@@ -81,8 +81,8 @@ export default function ContactUs() {
         </div>
       </div>
 
-      <div className="faq-box h-[650px] overflow-hidden pb-10 bg-[#ECF5F6]  pt-5 px-5">
-        <div className="text-heading text-3xl font-semibold">FAQ’s</div>
+      <div className="faq-box h-[817px] overflow-hidden pb-10 bg-[#ECF5F6]  pt-5 px-5">
+        <div className=" extraBoldFontFamily text-heading text-[45px] leading-[55px] font-semibold">FAQ’s</div>
         <div className="faq-question h-fit w-full mt-4 bg-[#fff]">
 
           <div className="question py-5 px-10 border-b-2 flex flex-row  gap-4">
