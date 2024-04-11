@@ -20,7 +20,6 @@ export default function Inspiration() {
               <p className="absolute bottom-4 left-4 text-white boldFontFamily">
                 {item.text}
               </p>
-              <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-10"></div>
             </div>
           );
         })}

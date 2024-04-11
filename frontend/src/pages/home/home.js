@@ -7,6 +7,9 @@ import { howWeWork, testimonialnData } from "../../constants/staticData";
 import { Link } from "react-router-dom";
 import Inspiration from "../../components/inspiration/inspiration";
 import Testimonials from "../../components/testimonial/testimonial";
+import footerImage from "../../assets/image/footerImage.png";
+import skyCircle from "../../assets/image/skyCircle.png";
+import whiteCircle from "../../assets/image/whiteCircle.png";
 
 export default function Home() {
   const [bannerData, setBannerData] = useState([]);
@@ -203,6 +206,17 @@ export default function Home() {
       <Inspiration />
 
       <Testimonials data={testimonialnData} />
+
+      <div className="w-[100%] h-[745] mt-20 rounded-3xl overflow-hidden relative flex justify-center">
+        <img src={footerImage} alt="Loading..." />
+        <button className="absolute bottom-40 meduimFontFamily bg-white text-black px-9 py-4 rounded-full">
+          Book Now
+        </button>
+        <div className="flex absolute bottom-10">
+          <img src={whiteCircle} className="w-14 h-14 mr-7 cursor-pointer" />
+          <img src={skyCircle} className="w-14 h-14 cursor-pointer" />
+        </div>
+      </div>
     </div>
   );
 }
