@@ -34,6 +34,12 @@
     url("./assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "AgainstRegular";
+  src: local("against-regular"),
+    url("./assets/fonts/against-regular.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

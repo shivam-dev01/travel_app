@@ -52,8 +52,22 @@
   font-family: "ExtraBold";
 }
 
+.againstRegularFontFamily {
+  font-family: "AgainstRegular";
+}
+
 .grayCustom {
   background-color: #f2eee9;
+}
+
+.hideScrollBar {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes App-logo-spin {

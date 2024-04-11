@@ -10,6 +10,7 @@ import Testimonials from "../../components/testimonial/testimonial";
 import footerImage from "../../assets/image/footerImage.png";
 import skyCircle from "../../assets/image/skyCircle.png";
 import whiteCircle from "../../assets/image/whiteCircle.png";
+import Footer from "../../footer/footer";
 
 export default function Home() {
   const [bannerData, setBannerData] = useState([]);
@@ -217,6 +218,7 @@ export default function Home() {
           <img src={skyCircle} className="w-14 h-14 cursor-pointer" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

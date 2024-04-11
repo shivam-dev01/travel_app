@@ -7,10 +7,10 @@ export default function Testimonials({ data = [] }) {
       <h1 className="extraBoldFontFamily text-4xl text-black text-center">
         What People are Saying
       </h1>
-      {/* <p className="regularFontFamily text-base text-black text-center mt-3">
+      <p className="regularFontFamily text-base text-black text-center mt-3">
         Don’t take our word for it. Trust our customers
-      </p> */}
-      <div className="testi flex overflow-x-scroll -scroll-20  mt-10">
+      </p>
+      <div className="testi flex overflow-x-scroll -scroll-20  mt-10 hideScrollBar">
         {data.map((item, index) => {
           return (
             <div className="w-[426px] h-[220px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 ">

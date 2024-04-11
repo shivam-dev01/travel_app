@@ -40,24 +40,33 @@ export default function Footer() {
         <div className="form  px-[75px] py-5 w-[600px] ">
           <div className="form-div  h-full ">
             <h2>Drop Us Your Basic Details We Will Connect You?</h2>
-            <input className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg" placeholder="FullName"></input>
-            <input className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg" placeholder="Email"></input>
-            <input className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-lg" placeholder="Phone"></input>
+            <input
+              className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-2xl pl-7 h-[55px]"
+              placeholder="Full Name"
+            ></input>
+            <input
+              className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-2xl pl-7 h-[55px]"
+              placeholder="Email"
+            ></input>
+            <input
+              className="bg-[#EFEFEF] p-2 w-full mt-5 rounded-2xl pl-7 h-[55px]"
+              placeholder="Phone"
+            ></input>
 
-            <button className="bg-[#3B9AA4] p-2 w-full mt-5 rounded-3xl text-[#fff]">
-                Submit
+            <button className="bg-[#3B9AA4] w-full mt-5 rounded-full text-[#fff] h-[54px]">
+              Submit
             </button>
           </div>
         </div>
       </div>
       <div className="sec-cont mt-5 py-2 ">
         <div className="copyright  w-96 ">
-            <div className="flex flex-row text-xs justify-between">
-                <div>Privacy Policy</div>
-                <div>Terms & Conditions</div>
-                <div>Manage Your Cookies</div>
-            </div>
-            <p className="text-xs text-center mt-1">Ⓒ trippkaro.com 2024</p>
+          <div className="flex flex-row text-xs justify-between">
+            <div>Privacy Policy</div>
+            <div>Terms & Conditions</div>
+            <div>Manage Your Cookies</div>
+          </div>
+          <p className="text-xs text-center mt-1">Ⓒ trippkaro.com 2024</p>
         </div>
       </div>
     </div>

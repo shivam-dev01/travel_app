@@ -222,7 +222,7 @@ export default function AboutUs() {
 
                 <div className="mt-2">
                   <h1 className="extraBoldFontFamily text-xl text-black mt-2">
-                    Founder: Rahul Kumar Gupta
+                  Curtsey: Trippkaro.com
                   </h1>
                 </div>
               </div>
