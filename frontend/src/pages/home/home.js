@@ -23,6 +23,28 @@ export default function Home() {
     getBannerData();
   }, []);
 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("-0sdsad-sa0d=sad=sa-");
+      const currentScrollPos = window.pageYOffset;
+      setVisible(
+        (prevScrollPos > currentScrollPos &&
+          prevScrollPos - currentScrollPos > 70) ||
+          currentScrollPos < 10
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, visible]);
+
   const getBannerData = async () => {
     try {
       const bannerResult = await axiosInstance.get(apiEndPoints.getBanner);
@@ -111,7 +133,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="w-full flex mt-20 gap-5">
+      <div className="w-full flex mt-20 gap-5 pl-[33px] pr-[33px]">
         {welcomeBanner.map((item, index) => {
           return (
             <div
@@ -136,14 +158,17 @@ export default function Home() {
         })}
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 pl-[33px] pr-[33px]">
         <h1 className="extraBoldFontFamily text-center text-3xl mb-7">
           How we work
         </h1>
         <div className="flex justify-between">
-          {howWeWork.map((item) => {
+          {howWeWork.map((item, index) => {
             return (
-              <div className="pl-5 pb-5 w-[325px] h-[185px] flex flex-col justify-end rounded-xl bg-grayCustom">
+              <div
+                key={index}
+                className="pl-5 pb-5 w-[325px] h-[185px] flex flex-col justify-end rounded-xl bg-grayCustom"
+              >
                 <img src={item.icon} className="w-5 h-5 mb-[14px]" />
                 <div className="boldFontFamily text-sm text-black  mb-4">
                   {item.header}
@@ -157,21 +182,21 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center mt-20 mb-11">
+      <div className="flex flex-col justify-center items-center mt-20 mb-11 pl-[33px] pr-[33px]">
         <h1 className="extraBoldFontFamily text-center text-3xl mb-5">
           Why Choose us?
         </h1>
-        <p className="regularFontFamily text-base text-black max-w-[868px]">
+        <p className="regularFontFamily text-base text-black max-w-[868px] text-center">
           Planning a trip can be overwhelming, but with trippkaro.com, you can
           relax and enjoy the process. Here are a few reasons why you should
           choose us for all your travel needs
         </p>
       </div>
 
-      <div className="bg-skyBlue100 rounded-lg">
+      <div className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
-            <div className="flex justify-between p-8">
+            <div key={index} className="flex justify-between p-8">
               <div className="w-[50%] pl-16 pr-16 flex flex-col justify-center">
                 <p className="meduimFontFamily text-xs text-black">
                   {item.topHeader}
@@ -184,11 +209,11 @@ export default function Home() {
                 </p>
 
                 <div className="mt-5">
-                  <button className="meduimFontFamily  bg-skyBule text-white rounded-full w-[111px] h-[38px]">
+                  <button className="meduimFontFamily  bg-skyBule text-white rounded-full pl-4 pr-4 pt-[10px] pb-[10px]">
                     {item.ctaPrimary}
                   </button>
 
-                  <button className="meduimFontFamily text-black rounded-full w-[111px] h-[38px] ml-5 border">
+                  <button className="meduimFontFamily text-black rounded-full ml-5 border pl-4 pr-4 pt-[10px] pb-[10px]">
                     {item.ctaSecondary}
                   </button>
                 </div>
@@ -208,8 +233,12 @@ export default function Home() {
 
       <Testimonials data={testimonialnData} />
 
-      <div className="w-[100%] h-[745] mt-20 rounded-3xl overflow-hidden relative flex justify-center">
-        <img src={footerImage} alt="Loading..." />
+      <div className="w-[100%] h-[745] mt-20 overflow-hidden relative flex justify-center pl-[33px] pr-[33px]">
+        <img
+          src={footerImage}
+          alt="Loading..."
+          className="w-[100%] h-[100%] rounded-3xl"
+        />
         <button className="absolute bottom-40 meduimFontFamily bg-white text-black px-9 py-4 rounded-full">
           Book Now
         </button>

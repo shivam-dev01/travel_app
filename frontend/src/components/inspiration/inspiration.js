@@ -15,7 +15,7 @@ export default function Inspiration() {
       <div className="flex flex-1 mt-9">
         {inspirationData.map((item, index) => {
           return (
-            <div className="h-[320px] overflow-hidden relative rounded-2xl mx-5">
+            <div key={index} className="h-[320px] overflow-hidden relative rounded-2xl mx-5">
               <img src={item.image} />
               <p className="absolute bottom-4 left-4 text-white boldFontFamily">
                 {item.text}

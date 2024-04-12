@@ -1,11 +1,13 @@
 .top-header {
-  background-color: #ffffff;
-  color: white;
+  background-color: #F2EEE9;
+  /* color: white; */
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  padding-left: 33px;
+  padding-right: 33px;
 }
 
 .logoImage {

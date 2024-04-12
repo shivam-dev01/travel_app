@@ -1,8 +1,6 @@
 .appBody {
   height: 100vh;
   /* border: 1px solid; */
-  padding-left: 33px;
-  padding-right: 33px;
   overflow: hidden;
 }
 

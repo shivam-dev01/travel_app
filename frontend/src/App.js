@@ -13,11 +13,13 @@ import AboutUs from "./pages/aboutUs/aboutUs";
 import ContactUs from "./pages/contactUs/contactUs";
 import Destination from "./pages/destination/destination";
 import Brochure from "./pages/brochure/brochure";
+import TopHeader from "./components/topHeader/topHeader";
 
 function App() {
   return (
     <div className="appBody">
       <Router>
+        <TopHeader />
         <Header />
         <Routes>
           <Route path="/" exact element={<Home />} />
