@@ -1,0 +1,10 @@
+.destBody {
+  overflow-y: auto;
+  height: calc(100% - 115px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.destBody::-webkit-scrollbar {
+  display: none;
+}

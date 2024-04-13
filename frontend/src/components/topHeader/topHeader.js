@@ -17,7 +17,7 @@ export default function TopHeader() {
         <div className="semiBoldFontFamily text-white ml-6">
           Email Us @:{" "}
           <span className="text-[#3B9AA4] font-semibold">
-            <a href="mailto:youremail@example.com" className="underline">
+            <a href="mailto:operations@trippkaro.com" className="underline" target="_blank">
               operations@trippkaro.com
             </a>
           </span>

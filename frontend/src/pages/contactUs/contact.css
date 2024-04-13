@@ -1,10 +1,8 @@
 .contactBody {
   overflow-y: auto;
-  height: calc(100% - 70px);
+  height: calc(100% - 115px);
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .contactBody::-webkit-scrollbar {
@@ -16,8 +14,9 @@
   flex-direction: column;
   flex: auto;
   height: 545px;
-  border-radius: 24px;
-  overflow: hidden;
+  padding-left: 33px;
+  padding-right: 33px;
+  margin-top: 10px;
 }
 
 .contactBanner {
@@ -25,13 +24,13 @@
   height: 100%;
   position: relative;
   display: flex;
-  justify-content: left;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .contactImageBanner {
   width: 100%;
   height: 100%;
-  /* resize: both; */
 }
 
 .contactContent {
@@ -39,28 +38,15 @@
   flex-direction: column;
   position: absolute;
   top: 210px;
-  align-items: start;
-  width: 900px;
-  justify-content: left;
-  padding-left: 40px;
+  padding-left: 62px;
 }
-/* .headerText {
-    font-size: 60px;
-    font-family: "SemiBold";
-    color: #ffffff;
-    padding: 0;
-    margin: 0;
-  }
-   */
+
 .contactsubHeaderText {
   font-size: 16px;
   font-family: "Medium";
   color: #ffffff;
   text-align: left;
-  padding: 0;
-  margin: 0;
-  margin-top: 130px;
-  margin-left: 20px;
+  padding-left: 10px;
 }
 
 .bookNowBtn {
@@ -69,7 +55,6 @@
   padding: 12px 25px 12px 25px;
   cursor: pointer;
   color: #3b9aa4;
-  /* text-decoration-color: #3b9aa4; */
   font-family: "Regular";
   font-size: 18px;
   margin-top: 32px;
@@ -81,9 +66,21 @@
   flex-direction: column;
   height: 500px;
   margin-top: 80px;
+  padding-left: 33px;
+  padding-right: 33px;
 }
 
 .contentDesc {
   text-align: center;
   width: 900px;
+}
+
+.answerAnimation {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+}
+
+.answerAnimation.open {
+  max-height: 200px;
 }

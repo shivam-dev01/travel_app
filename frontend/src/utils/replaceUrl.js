@@ -1,4 +1,5 @@
 export const replaceUrl = (url) => {
+  if (!url) return;
   const replaceUrl = url.replace(
     "https://trippkaro.s3.ap-south-1.amazonaws.com",
     "https://das8ue6s8a9mn.cloudfront.net"

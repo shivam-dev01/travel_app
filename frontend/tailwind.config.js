@@ -15,6 +15,11 @@ module.exports = {
       skyBlue100: "#ECF5F6",
       pinkCustom: "#F2E6D7",
       grayCustom2: "#D3D3D3",
+      gray100: "#ECF5F6",
+      gray500: "#6C727F",
+      green100: "#E6F3EB",
+      green: "#277047",
+      pink200: "#FFFAF4",
     },
   },
   plugins: [

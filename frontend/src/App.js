@@ -14,6 +14,7 @@ import ContactUs from "./pages/contactUs/contactUs";
 import Destination from "./pages/destination/destination";
 import Brochure from "./pages/brochure/brochure";
 import TopHeader from "./components/topHeader/topHeader";
+import TrippDetails from "./pages/tripDetails/tripDetails";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/destination" element={<Destination />} />
+          <Route path="/destination/:destId" element={<Destination />} />
+          <Route path="/tripp" element={<TrippDetails />} />
           <Route path="/e-brochure" element={<Brochure />} />
           <Route path="/contact-us" element={<ContactUs />} />
         </Routes>

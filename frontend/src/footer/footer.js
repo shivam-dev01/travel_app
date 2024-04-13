@@ -5,6 +5,8 @@ import { ReactComponent as FacebookIcon } from "../assets/svg/Facebook.svg";
 import { ReactComponent as InstagramIcon } from "../assets/svg/Instagram.svg";
 import { ReactComponent as XIcon } from "../assets/svg/X.svg";
 import { ReactComponent as YouTubeIcon } from "../assets/svg/Youtube.svg";
+import InputForm from "../components/form/form";
+import PrivacyPolicy from "../components/privacyPolicy/privacyPolicy";
 
 export default function Footer() {
   return (
@@ -37,7 +39,7 @@ export default function Footer() {
               <div className="semiBoldFontFamily">
                 Email Us @:{" "}
                 <span className="text-[#3B9AA4] font-semibold">
-                  <a href="mailto:youremail@example.com" className="underline">
+                  <a href="mailto:operations@trippkaro.com" className="underline" target="_blank">
                     operations@trippkaro.com
                   </a>
                 </span>
@@ -61,51 +63,11 @@ export default function Footer() {
           </div>
         </div>
         <div className="form py-3 h-[342px] w-[579px] mt-4">
-          <div className="form-div  h-full boldFontFamily">
-            <h2>Drop Us Your Basic Details We Will Connect You?</h2>
-            <input
-              className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
-              placeholder="Full Name"
-            ></input>
-
-            <input
-              className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
-              placeholder="Phone Number"
-            ></input>
-
-            <input
-              className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
-              placeholder="Email Address"
-            ></input>
-
-            <button className="bg-[#3B9AA4] p-2 w-full mt-8 h-14 rounded-full text-[#fff]">
-              Submit
-            </button>
-          </div>
+          <InputForm />
         </div>
       </div>
 
-      <div className="sec-cont mt-5  py-5">
-        <div className="copyright">
-          <div className="flex flex-row text-sm justify-between">
-            <div className="underline meduimFontFamily cursor-pointer">
-              Privacy Policy
-            </div>
-            <div className="px-3">|</div>
-            <div className="underline meduimFontFamily cursor-pointer">
-              Terms & Conditions
-            </div>
-            <div className="px-3">|</div>
-            <div className="underline meduimFontFamily cursor-pointer">
-              Manage Your Cookies
-            </div>
-          </div>
-
-          <p className="text-base text-center mt-4 meduimFontFamily">
-            Ⓒ trippkaro.com 2024
-          </p>
-        </div>
-      </div>
+      <PrivacyPolicy />
     </div>
   );
 }

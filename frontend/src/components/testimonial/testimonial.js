@@ -11,7 +11,7 @@ export default function Testimonials({ data = [] }) {
       <p className="regularFontFamily text-base text-black text-center mt-3">
         Don’t take our word for it. Trust our customers
       </p>
-      <div className="testi flex overflow-x-scroll -scroll-20  mt-10 py-[28px] hideScrollBar">
+      <div className="flex overflow-x-scroll -scroll-20  mt-10 py-[28px] hideScrollBar">
         {data.map((item, index) => {
           return (
             <div
@@ -21,7 +21,7 @@ export default function Testimonials({ data = [] }) {
               <div className="flex">
                 {[...Array(item?.rating)].map((_, index) => {
                   return (
-                    <div className="ml-2">
+                    <div key={index} className="ml-2">
                       <StarIcon />
                     </div>
                   );

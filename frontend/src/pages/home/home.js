@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./home.css";
-import { axiosInstance } from "../../api/axiosIntance";
-import { apiEndPoints } from "../../constants/apiEndPoints";
 import { replaceUrl } from "../../utils/replaceUrl";
 import { howWeWork, testimonialnData } from "../../constants/staticData";
 import { Link } from "react-router-dom";
@@ -11,84 +9,31 @@ import footerImage from "../../assets/image/footerImage.png";
 import skyCircle from "../../assets/image/skyCircle.png";
 import whiteCircle from "../../assets/image/whiteCircle.png";
 import Footer from "../../footer/footer";
+import useTrippStore from "../../zustand/trippStore";
 
 export default function Home() {
-  const [bannerData, setBannerData] = useState([]);
-  const [homeBanner, setHomeBanner] = useState([]);
-  const [welcomeBanner, setWelcomeBanner] = useState([]);
-  const [destinationBanner, setDestinationBanner] = useState([]);
-  const [chooseBanner, setChooseBanner] = useState([]);
+  const {
+    getBannerData,
+    homeBanner,
+    welcomeBanner,
+    destination,
+    chooseBanner,
+  } = useTrippStore((state) => state);
 
   useEffect(() => {
-    getBannerData();
-  }, []);
-
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log("-0sdsad-sa0d=sad=sa-");
-      const currentScrollPos = window.pageYOffset;
-      setVisible(
-        (prevScrollPos > currentScrollPos &&
-          prevScrollPos - currentScrollPos > 70) ||
-          currentScrollPos < 10
-      );
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos, visible]);
-
-  const getBannerData = async () => {
-    try {
-      const bannerResult = await axiosInstance.get(apiEndPoints.getBanner);
-
-      if (bannerResult?.data && bannerResult.data?.result?.length) {
-        console.log("----length-----");
-        setHomeBanner(
-          bannerResult.data.result.filter((item) =>
-            item.bannerType.includes("HOME")
-          )
-        );
-
-        setWelcomeBanner(
-          bannerResult.data.result.filter((item) =>
-            item.bannerType.includes("WELCOME")
-          )
-        );
-
-        setDestinationBanner(
-          bannerResult.data.result.filter((item) =>
-            item.bannerType.includes("DESTINATION")
-          )
-        );
-
-        setChooseBanner(
-          bannerResult.data.result.filter((item) =>
-            item.bannerType.includes("CHOOSE")
-          )
-        );
-      }
-
-      // console.log("----bannerResult-----", bannerResult);
-    } catch (error) {
-      console.log("-----error----", error);
+    if (!homeBanner.length) {
+      getBannerData()
+        .then((res) => {
+          console.log("--res--", res);
+        })
+        .catch((error) => {
+          console.log("--error---");
+        })
+        .finally(() => {
+          console.log("--finally");
+        });
     }
-  };
-
-  // console.log("-------HOMEbANNER-----", homeBanner);
-
-  console.log("-------chooseBanner-----", chooseBanner);
-
-  // console.log("-------destinationBanner-----", destinationBanner);
-
-  // console.log("-------chooseBanner-----", chooseBanner);
+  }, []);
 
   return (
     <div className="homeBody">
