@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./contact.css";
 import banner from "../../assets/image/bannerContact.png";
 import location from "../../assets/image/loc.png";
@@ -9,6 +9,13 @@ import InputForm from "../../components/form/form";
 import Faqs from "../../components/faqs/faqs";
 
 export default function ContactUs() {
+  const formRef = useRef(null);
+  useEffect(() => {
+    if (window.location.hash === "#form") {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div className="contactBody">
       <div className="contactBannerBody">
@@ -65,7 +72,10 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="form  flex justify-center pt-[65px] pl-[78px] pr-[78px] w-[50%]  border-2 border-[#3B9AA4] rounded-xl ">
+          <div
+            ref={formRef}
+            className="form  flex justify-center pt-[65px] pl-[78px] pr-[78px] w-[50%]  border-2 border-[#3B9AA4] rounded-xl "
+          >
             <InputForm />
           </div>
         </div>

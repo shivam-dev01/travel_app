@@ -9,6 +9,8 @@ const trippStore = (set, get) => ({
   destination: [],
   chooseBanner: [],
   tripDetails: [],
+  allTripDetails: [],
+  eBrochureTrip: [],
 
   getBannerData: async () => {
     try {
@@ -80,6 +82,21 @@ const trippStore = (set, get) => ({
       return [data.data?.result];
     } catch (error) {
       console.log("--ErrorgetTripById--", error?.message);
+    }
+  },
+
+  getAllTripDetails: async () => {
+    try {
+      const result = await axiosInstance.get(apiEndPoints.getAllTrip);
+
+      if (result?.data && result.data?.result?.length) {
+        set((state) => ({
+          allTripDetails: result.data?.result,
+          eBrochureTrip: result.data?.result?.filter((item) => !!item.pdfFile),
+        }));
+      }
+    } catch (error) {
+      console.log("--errorGetAllTripDetails--", error?.message);
     }
   },
 });

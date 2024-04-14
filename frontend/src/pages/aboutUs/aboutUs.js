@@ -7,8 +7,11 @@ import destOne from "../../assets/image/aboutUs/image-destOne.png";
 import destTwo from "../../assets/image/aboutUs/image-destTwo.png";
 import ourTeam from "../../assets/image/aboutUs/ourTeam.png";
 import Footer from "../../footer/footer";
+import { useNavigate } from "react-router-dom";
+import { onBookNow } from "../../utils/clickFunctions";
 
 export default function AboutUs() {
+  const navigation = useNavigate();
   return (
     <div className="aboutBody">
       <div className="aboutBannerBody">
@@ -78,7 +81,10 @@ export default function AboutUs() {
             </p>
 
             <div className="mt-5">
-              <button className="meduimFontFamily  bg-skyBule text-white rounded-full w-[181px] h-[56px]">
+              <button
+                className="meduimFontFamily  bg-skyBule text-white rounded-full w-[181px] h-[56px]"
+                onClick={() => onBookNow(navigation)}
+              >
                 Get In touch
               </button>
 
@@ -110,7 +116,10 @@ export default function AboutUs() {
             </p>
 
             <div className="mt-5">
-              <button className="meduimFontFamily  bg-skyBule text-white rounded-full w-[181px] h-[56px]">
+              <button
+                className="meduimFontFamily  bg-skyBule text-white rounded-full w-[181px] h-[56px]"
+                onClick={() => onBookNow(navigation)}
+              >
                 Get In touch
               </button>
 

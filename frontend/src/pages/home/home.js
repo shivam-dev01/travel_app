@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./home.css";
 import { replaceUrl } from "../../utils/replaceUrl";
 import { howWeWork, testimonialnData } from "../../constants/staticData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Inspiration from "../../components/inspiration/inspiration";
 import Testimonials from "../../components/testimonial/testimonial";
 import footerImage from "../../assets/image/footerImage.png";
@@ -10,8 +10,10 @@ import skyCircle from "../../assets/image/skyCircle.png";
 import whiteCircle from "../../assets/image/whiteCircle.png";
 import Footer from "../../footer/footer";
 import useTrippStore from "../../zustand/trippStore";
+import { onBookNow, onLearnClick } from "../../utils/clickFunctions";
 
 export default function Home() {
+  const navigation = useNavigate();
   const {
     getBannerData,
     homeBanner,
@@ -19,6 +21,8 @@ export default function Home() {
     destination,
     chooseBanner,
   } = useTrippStore((state) => state);
+  // const [activeSection, setActiveSection] = useState(null);
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     if (!homeBanner.length) {
@@ -35,9 +39,36 @@ export default function Home() {
     }
   }, []);
 
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setActiveSection(entry.target.id);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   sectionRefs.current.forEach((ref) => {
+  //     observer.observe(ref.current);
+  //   });
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, []);
+
+  console.log("---chooseBanner---", JSON.stringify(chooseBanner, null, 2));
+
   return (
     <div className="homeBody">
-      <div className="homeBannerBody">
+      <div
+        id="section1"
+        ref={sectionRefs.current[0]}
+        className="homeBannerBody"
+      >
         {homeBanner.map((item, index) => {
           return (
             <div key={index} className="homeBanner">
@@ -49,7 +80,10 @@ export default function Home() {
               <div className="homeContent">
                 <h1 className="headerText">{item.header}</h1>
                 <p className="subHeaderText">{item.subHeader}</p>
-                <button className="bookNowBtn bg-white outline-none border-none">
+                <button
+                  className="bookNowBtn bg-white outline-none border-none"
+                  onClick={() => onBookNow(navigation)}
+                >
                   {item.ctaPrimary}
                 </button>
               </div>
@@ -58,7 +92,11 @@ export default function Home() {
         })}
       </div>
 
-      <div className="middleContentBody">
+      <div
+        id="section2"
+        ref={sectionRefs.current[1]}
+        className="middleContentBody"
+      >
         <h1 className="extraBoldFontFamily text-5xl mt-16 leading-none">
           Welcome To India
         </h1>
@@ -78,7 +116,11 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="w-full flex mt-20 gap-5 pl-[33px] pr-[33px]">
+      <div
+        id="section3"
+        ref={sectionRefs.current[2]}
+        className="w-full flex mt-20 gap-5 pl-[33px] pr-[33px]"
+      >
         {welcomeBanner.map((item, index) => {
           return (
             <div
@@ -95,7 +137,10 @@ export default function Home() {
                   {item.subHeader}
                 </div>
               </div>
-              <button className="absolute bottom-14 left-11 meduimFontFamily bg-white text-black px-9 py-4 rounded-full">
+              <button
+                className="absolute bottom-14 left-11 meduimFontFamily bg-white text-black px-9 py-4 rounded-full"
+                onClick={() => onBookNow(navigation)}
+              >
                 {item.ctaPrimary}
               </button>
             </div>
@@ -103,7 +148,11 @@ export default function Home() {
         })}
       </div>
 
-      <div className="mt-16 pl-[33px] pr-[33px]">
+      <div
+        id="section4"
+        ref={sectionRefs.current[3]}
+        className="mt-16 pl-[33px] pr-[33px]"
+      >
         <h1 className="extraBoldFontFamily text-center text-3xl mb-7">
           How we work
         </h1>
@@ -118,7 +167,10 @@ export default function Home() {
                 <div className="boldFontFamily text-sm text-black  mb-4">
                   {item.header}
                 </div>
-                <Link className="boldFontFamily text-xs text-black cursor-pointer">
+                <Link
+                  to={"/policy"}
+                  className="boldFontFamily text-xs text-black cursor-pointer"
+                >
                   {item.subHeader}
                 </Link>
               </div>
@@ -127,7 +179,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center mt-20 mb-11 pl-[33px] pr-[33px]">
+      <div
+        id="section5"
+        ref={sectionRefs.current[4]}
+        className="flex flex-col justify-center items-center mt-20 mb-11 pl-[33px] pr-[33px]"
+      >
         <h1 className="extraBoldFontFamily text-center text-3xl mb-5">
           Why Choose us?
         </h1>
@@ -138,7 +194,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="bg-skyBlue100">
+      <div id="section6" ref={sectionRefs.current[5]} className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
             <div key={index} className="flex justify-between p-8">
@@ -154,13 +210,19 @@ export default function Home() {
                 </p>
 
                 <div className="mt-5">
-                  <button className="meduimFontFamily  bg-skyBule text-white rounded-full pl-4 pr-4 pt-[10px] pb-[10px]">
+                  <button
+                    className="meduimFontFamily  bg-skyBule text-white rounded-full pl-4 pr-4 pt-[10px] pb-[10px]"
+                    onClick={() => onBookNow(navigation)}
+                  >
                     {item.ctaPrimary}
                   </button>
 
-                  <button className="meduimFontFamily text-black rounded-full ml-5 border pl-4 pr-4 pt-[10px] pb-[10px]">
+                  <Link
+                    to={`destination/${item?._id}`}
+                    className="meduimFontFamily text-black rounded-full ml-5 border pl-4 pr-4 pt-[10px] pb-[10px]"
+                  >
                     {item.ctaSecondary}
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="w-[50%] p-33 h-[551px] rounded-3xl">
@@ -184,7 +246,10 @@ export default function Home() {
           alt="Loading..."
           className="w-[100%] h-[100%] rounded-3xl"
         />
-        <button className="absolute bottom-40 meduimFontFamily bg-white text-black px-9 py-4 rounded-full">
+        <button
+          className="absolute bottom-40 meduimFontFamily bg-white text-black px-9 py-4 rounded-full"
+          onClick={() => onBookNow(navigation)}
+        >
           Book Now
         </button>
         <div className="flex absolute bottom-10">

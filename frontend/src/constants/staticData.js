@@ -124,3 +124,36 @@ export const faqsData = [
       "You can reach us through our various meduims available. You can Call Us at +91 8506 086 055 or email us at operations@trippkaro.com also you can ping us at our various social medias.",
   },
 ];
+
+export const policyTabs = [
+  {
+    name: "Inclusions",
+    slug: "inclusions",
+    isActive: true,
+  },
+  {
+    name: "Exclusion",
+    slug: "exclusion",
+    isActive: false,
+  },
+  {
+    name: "Cancellation Policy",
+    slug: "cancilation",
+    isActive: false,
+  },
+  {
+    name: "Payment Terms & Methods",
+    slug: "paymentTerms",
+    isActive: false,
+  },
+  {
+    name: "Note",
+    slug: "note",
+    isActive: false,
+  },
+  {
+    name: "Hidden Charges",
+    slug: "Charges",
+    isActive: false,
+  },
+];

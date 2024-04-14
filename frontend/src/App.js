@@ -15,6 +15,7 @@ import Destination from "./pages/destination/destination";
 import Brochure from "./pages/brochure/brochure";
 import TopHeader from "./components/topHeader/topHeader";
 import TrippDetails from "./pages/tripDetails/tripDetails";
+import Policy from "./pages/policy/policy";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/tripp" element={<TrippDetails />} />
           <Route path="/e-brochure" element={<Brochure />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/policy" element={<Policy />} />
         </Routes>
       </Router>
     </div>

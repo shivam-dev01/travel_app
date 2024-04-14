@@ -12,9 +12,10 @@ import transport from "../../assets/svg/transport.svg";
 import days from "../../assets/svg/days.svg";
 import { person } from "../../utils/personPrice";
 import CustomPackage from "../../components/customPackage/customPackage";
+import { onBookNow } from "../../utils/clickFunctions";
 
 export default function Destination() {
-  const navigate = useNavigate();
+  const navigation = useNavigate();
   let { destId } = useParams();
   const { getDestById, getTripByDest, tripDetails, banner } = useTrippStore(
     (state) => state
@@ -41,7 +42,7 @@ export default function Destination() {
 
   const onToggletripCard = (_id) => {
     try {
-      navigate("/tripp", { state: { tripId: _id, destId } });
+      navigation("/tripp", { state: { tripId: _id, destId } });
     } catch (error) {
       console.log("----error----", error?.message);
     }
@@ -67,7 +68,10 @@ export default function Destination() {
                   {item?.header}
                 </h1>
                 <p className="subHeaderText">{item?.subHeader}</p>
-                <button className="bookNowBtn bg-white outline-none border-none">
+                <button
+                  className="bookNowBtn bg-white outline-none border-none"
+                  onClick={() => onBookNow(navigation)}
+                >
                   {item?.ctaPrimary}
                 </button>
               </div>
@@ -182,8 +186,9 @@ export default function Destination() {
       <div className="px-[154px] mt-20">
         <CustomPackage
           header="Need Custom Package"
-          title="Trippkaro.com understands that planning a trip can be overwhelming, which is why we’ve made it our mission to make it easy and enjoyable for you. If you have an unique request for package reach us we will resolve it immediately "
+          title="Tripp Karo understands that planning a trip can be overwhelming, which is why we’ve made it our mission to make it easy and enjoyable for you. If you have an unique request for package reach us we will resolve it immediately "
           btnText="Contact Us"
+          onClick={() => onBookNow(navigation)}
         />
       </div>
 

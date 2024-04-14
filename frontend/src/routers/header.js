@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./header.css";
-import { Link, useH } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { routes } from "../constants/routes";
 import logoImage from "../assets/image/tippKaroLogo.png";
 import chevron from "../assets/svg/chevron.svg";
@@ -127,7 +127,7 @@ export default function Header() {
       </div>
 
       <Link
-        to={"/book-now"}
+        to={"/contact-us#form"}
         className="bookNowButton"
         onClick={() => onToggleMenu(5)}
       >

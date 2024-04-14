@@ -3,7 +3,7 @@ export interface PolicyDetailsProps {
     exclusion: String[];
     cancilation: String[];
     paymentTerms: String[];
-    note: String;
+    note: String[];
     Charges: String[];
     tabName: String;
     tabDetails: String;
