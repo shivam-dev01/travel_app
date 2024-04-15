@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import { replaceUrl } from "../../utils/replaceUrl";
 import { howWeWork, testimonialnData } from "../../constants/staticData";
@@ -10,18 +10,12 @@ import skyCircle from "../../assets/image/skyCircle.png";
 import whiteCircle from "../../assets/image/whiteCircle.png";
 import Footer from "../../footer/footer";
 import useTrippStore from "../../zustand/trippStore";
-import { onBookNow, onLearnClick } from "../../utils/clickFunctions";
+import { onBookNow } from "../../utils/clickFunctions";
 
 export default function Home() {
   const navigation = useNavigate();
-  const {
-    getBannerData,
-    homeBanner,
-    welcomeBanner,
-    destination,
-    chooseBanner,
-  } = useTrippStore((state) => state);
-  // const [activeSection, setActiveSection] = useState(null);
+  const { getBannerData, homeBanner, welcomeBanner, chooseBanner } =
+    useTrippStore((state) => state);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -38,29 +32,6 @@ export default function Home() {
         });
     }
   }, []);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setActiveSection(entry.target.id);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 }
-  //   );
-
-  //   sectionRefs.current.forEach((ref) => {
-  //     observer.observe(ref.current);
-  //   });
-
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // }, []);
-
-  console.log("---chooseBanner---", JSON.stringify(chooseBanner, null, 2));
 
   return (
     <div className="homeBody">
