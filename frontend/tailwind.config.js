@@ -23,6 +23,7 @@ module.exports = {
       green900: "#0A808C",
       green200: "#F2FEFF",
       gray600: "#797979",
+      red: "#FF0000",
     },
   },
   plugins: [

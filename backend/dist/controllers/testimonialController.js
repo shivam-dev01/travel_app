@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tripDetails_1 = require("../models/tripDetails");
 const httpsResponse_1 = __importDefault(require("../utils/httpsResponse"));
 const messages_1 = __importDefault(require("../config/messages"));
 const testimonial_1 = require("../models/testimonial");
@@ -21,7 +20,7 @@ const testimonialController = {
         try {
             const bodyData = req.body;
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
             }
             const result = yield testimonial_1.TestimonialModel.create(bodyData);
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.trip.create);
@@ -32,7 +31,7 @@ const testimonialController = {
     }),
     getTestimonial: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield tripDetails_1.TripModel.find();
+            const result = yield testimonial_1.TestimonialModel.find();
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.trip.create);
         }
         catch (error) {
@@ -43,9 +42,9 @@ const testimonialController = {
         try {
             const testimonialId = req.params;
             if (!testimonialId) {
-                throw new Error('Trip Id is missing.');
+                throw new Error("Testimonial Id is missing.");
             }
-            const result = yield tripDetails_1.TripModel.findById(testimonialId);
+            const result = yield testimonial_1.TestimonialModel.findById(testimonialId);
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -55,14 +54,12 @@ const testimonialController = {
     updateTestimonial: () => __awaiter(void 0, void 0, void 0, function* () {
         try {
         }
-        catch (error) {
-        }
+        catch (error) { }
     }),
     deleteTestimonial: () => __awaiter(void 0, void 0, void 0, function* () {
         try {
         }
-        catch (error) {
-        }
+        catch (error) { }
     }),
 };
 exports.default = testimonialController;

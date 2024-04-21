@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Footer from "../../footer/footer";
 import Faqs from "../../components/faqs/faqs";
 import Testimonials from "../../components/testimonial/testimonial";
-import { testimonialnData } from "../../constants/staticData";
 import Search from "../../components/search/search";
 import useTrippStore from "../../zustand/trippStore";
 import { onPdfClick } from "../../utils/clickFunctions";
@@ -61,7 +60,7 @@ export default function Brochure() {
         })}
       </div>
 
-      <Testimonials data={testimonialnData} />
+      <Testimonials />
       <Faqs />
       <Footer />
     </div>

@@ -6,7 +6,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  mobile: String,
+  phone: String,
 });
 
 export const UserModel = model<Users>(IDatabaseSchema.USER, userSchema);

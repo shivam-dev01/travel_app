@@ -1,7 +1,6 @@
 import React from "react";
 import Search from "../../components/search/search";
 import Testimonials from "../../components/testimonial/testimonial";
-import { testimonialnData } from "../../constants/staticData";
 import Faqs from "../../components/faqs/faqs";
 import Footer from "../../footer/footer";
 
@@ -232,7 +231,7 @@ export default function Policy() {
         </div>
       </div>
 
-      <Testimonials data={testimonialnData} />
+      <Testimonials />
 
       <Faqs />
 

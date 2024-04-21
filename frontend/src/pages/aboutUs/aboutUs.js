@@ -1,6 +1,5 @@
 import React from "react";
 import "./aboutUs.css";
-import { testimonialnData } from "../../constants/staticData";
 import Testimonials from "../../components/testimonial/testimonial";
 import banner from "../../assets/image/aboutUs/bannerAbout.png";
 import destOne from "../../assets/image/aboutUs/image-destOne.png";
@@ -144,7 +143,7 @@ export default function AboutUs() {
               We maximize your vacation<br></br> experience the right way.
             </h1>
             <p className="regularFontFamily text-[16px] leading-[32px] text-black mt-5">
-              We at trippkaro.com understand that planning a trip can be
+              We at Tripp Karo understand that planning a trip can be
               overwhelming, which is why we’ve made it our mission to make it
               easy and enjoyable for you. Our website is packed with useful
               tips, recommendations, and insider information to help you get the
@@ -164,7 +163,7 @@ export default function AboutUs() {
 
       {/* <Inspiration /> */}
 
-      <Testimonials data={testimonialnData} />
+      <Testimonials />
 
       <Footer />
     </div>

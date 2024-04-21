@@ -23,16 +23,16 @@ const tripController = {
             const file = req.file;
             const bodyData = req.body;
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
             }
-            console.log('----bodyData----', bodyData);
-            console.log('-----file-----', file);
+            console.log("----bodyData----", bodyData);
+            console.log("-----file-----", file);
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
             }
             let fileData = {
                 file: null,
-                fileType: null
+                fileType: null,
             };
             if (file) {
                 fileData.file = yield fileHandler_1.default.uploadTos3(file, S3folderType_1.S3folderTypes.CARDS);
@@ -47,7 +47,10 @@ const tripController = {
     }),
     getTrip: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield tripDetails_1.TripModel.find().populate('destination').populate("policyDetails").populate("itineraryDetails");
+            const result = yield tripDetails_1.TripModel.find()
+                .populate("destination")
+                .populate("policyDetails")
+                .populate("itineraryDetails");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.trip.create);
         }
         catch (error) {
@@ -58,9 +61,12 @@ const tripController = {
         try {
             const { tripId } = req.query;
             if (!tripId) {
-                throw new Error('Trip Id is missing.');
+                throw new Error("Trip Id is missing.");
             }
-            const result = yield tripDetails_1.TripModel.findById(tripId).populate('destination').populate("policyDetails").populate("itineraryDetails");
+            const result = yield tripDetails_1.TripModel.findById(tripId)
+                .populate("destination")
+                .populate("policyDetails")
+                .populate("itineraryDetails");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -71,9 +77,12 @@ const tripController = {
         try {
             const { destinationId } = req.query;
             if (!destinationId) {
-                throw new Error('Destination Id is missing.');
+                throw new Error("Destination Id is missing.");
             }
-            const result = yield tripDetails_1.TripModel.find({ destination: destinationId }).populate('destination').populate("policyDetails").populate("itineraryDetails");
+            const result = yield tripDetails_1.TripModel.find({ destination: destinationId })
+                .populate("destination")
+                .populate("policyDetails")
+                .populate("itineraryDetails");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -83,14 +92,12 @@ const tripController = {
     updateTrip: () => __awaiter(void 0, void 0, void 0, function* () {
         try {
         }
-        catch (error) {
-        }
+        catch (error) { }
     }),
     deleteTrip: () => __awaiter(void 0, void 0, void 0, function* () {
         try {
         }
-        catch (error) {
-        }
+        catch (error) { }
     }),
 };
 exports.default = tripController;

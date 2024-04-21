@@ -7,5 +7,5 @@ const express_1 = __importDefault(require("express"));
 const testimonialController_1 = __importDefault(require("../controllers/testimonialController"));
 const testimonialRoute = (0, express_1.default)();
 testimonialRoute.post('/create', testimonialController_1.default.createTestimonial);
-testimonialRoute.post('/get', testimonialController_1.default.getTestimonial);
+testimonialRoute.get('/get', testimonialController_1.default.getTestimonial);
 exports.default = testimonialRoute;

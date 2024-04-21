@@ -4,7 +4,7 @@ import useTrippStore from "../../zustand/trippStore";
 import { useLocation, useNavigate } from "react-router-dom";
 import { replaceUrl } from "../../utils/replaceUrl";
 import Testimonials from "../../components/testimonial/testimonial";
-import { policyTabs, testimonialnData } from "../../constants/staticData";
+import { policyTabs } from "../../constants/staticData";
 import Faqs from "../../components/faqs/faqs";
 import Footer from "../../footer/footer";
 import CustomPackage from "../../components/customPackage/customPackage";
@@ -263,7 +263,7 @@ export default function TrippDetails() {
       </div>
 
       {/* Section 8*/}
-      <Testimonials data={testimonialnData} />
+      <Testimonials />
 
       {/* Section 9*/}
       <Faqs />

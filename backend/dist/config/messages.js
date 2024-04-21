@@ -37,7 +37,13 @@ const messages = {
             delete: "Itinerary deleted successfully",
             update: "Itinerary updated successfully",
             get: "Itinerary fetched successfully",
-        }
+        },
+        inquiry: {
+            create: "Inquiry created successfully",
+            delete: "Inquiry deleted successfully",
+            update: "Inquiry updated successfully",
+            get: "Inquiry fetched successfully",
+        },
     },
     error: {
         badRequest: "Bad Request",

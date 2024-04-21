@@ -22,14 +22,14 @@ const bannerController = {
         try {
             const file = req.file;
             const bodyData = req.body;
-            console.log('----bodyData----', bodyData);
-            console.log('-----file-----', file);
+            console.log("----bodyData----", bodyData);
+            console.log("-----file-----", file);
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
             }
             let fileData = {
                 file: null,
-                fileType: null
+                fileType: null,
             };
             if (file) {
                 fileData.file = yield fileHandler_1.default.uploadTos3(file, S3folderType_1.S3folderTypes.BANNERS);
@@ -44,7 +44,7 @@ const bannerController = {
     }),
     getBanner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield banners_1.BannerModel.find().populate("destination");
+            const result = yield banners_1.BannerModel.find({ isVisible: true }).populate("destination");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -54,9 +54,9 @@ const bannerController = {
     getBannerById: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { bannerId } = req.query;
-            console.log('----bannerId----', bannerId);
+            console.log("----bannerId----", bannerId);
             if (!bannerId) {
-                throw new Error('Banner Id is missing.');
+                throw new Error("Banner Id is missing.");
             }
             const result = yield banners_1.BannerModel.findById(bannerId).populate("destination");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
@@ -68,11 +68,14 @@ const bannerController = {
     getBannerByDestinationId: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { destinationId } = req.query;
-            console.log('----bannerId----', destinationId);
+            console.log("----bannerId----", destinationId);
             if (!destinationId) {
-                throw new Error('Destination Id is missing.');
+                throw new Error("Destination Id is missing.");
             }
-            const result = yield banners_1.BannerModel.find({ destination: destinationId }).populate('destination');
+            const result = yield banners_1.BannerModel.find({
+                destination: destinationId,
+                isVisible: true,
+            }).populate("destination");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -81,7 +84,7 @@ const bannerController = {
     }),
     updateBanner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            console.log('---reqBody---', req.body);
+            console.log("---reqBody---", req.body);
         }
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
@@ -93,6 +96,6 @@ const bannerController = {
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
         }
-    })
+    }),
 };
 exports.default = bannerController;

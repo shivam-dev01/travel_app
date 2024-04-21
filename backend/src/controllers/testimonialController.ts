@@ -1,4 +1,3 @@
-
 import { Request, Response } from "express";
 import { TripModel } from "../models/tripDetails";
 import httpResponse from "../utils/httpsResponse";
@@ -7,87 +6,72 @@ import { TestimonialModel } from "../models/testimonial";
 import { TestimonialProps } from "../types/testimonial";
 
 const testimonialController = {
-    createTestimonial: async (req: Request, res: Response) => {
+  createTestimonial: async (req: Request, res: Response) => {
+    try {
+      const bodyData: TestimonialProps = req.body;
 
-        try {
+      if (!bodyData || !Object.keys(bodyData).length) {
+        throw new Error("No data provided.");
+      }
 
-            const bodyData: TestimonialProps = req.body
+      const result = await TestimonialModel.create(bodyData);
 
-            if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.')
-            }
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.trip.create
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-            const result = await TestimonialModel.create(bodyData)
+  getTestimonial: async (req: Request, res: Response) => {
+    try {
+      const result = await TestimonialModel.find();
 
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.trip.create
-            )
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.trip.create
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
+  getTestimonialById: async (req: Request, res: Response) => {
+    try {
+      const testimonialId = req.params;
 
-    getTestimonial: async (req: Request, res: Response) => {
+      if (!testimonialId) {
+        throw new Error("Testimonial Id is missing.");
+      }
 
-        try {
+      const result = await TestimonialModel.findById(testimonialId);
 
-            const result = await TripModel.find()
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.banner.get
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.trip.create
-            )
+  updateTestimonial: async () => {
+    try {
+    } catch (error) {}
+  },
 
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
+  deleteTestimonial: async () => {
+    try {
+    } catch (error) {}
+  },
+};
 
-    getTestimonialById: async (req: Request, res: Response) => {
-        try {
-            const testimonialId = req.params
-
-            if (!testimonialId) {
-                throw new Error('Trip Id is missing.')
-            }
-
-            const result = await TripModel.findById(testimonialId)
-
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.banner.get
-            );
-
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
-
-    updateTestimonial: async () => {
-
-        try {
-
-        } catch (error) {
-
-        }
-    },
-
-    deleteTestimonial: async () => {
-
-        try {
-
-        } catch (error) {
-
-        }
-    },
-}
-
-export default testimonialController
+export default testimonialController;

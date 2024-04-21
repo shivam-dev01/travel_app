@@ -16,11 +16,18 @@ const tripDetailsSchema = new mongoose_1.Schema({
     hotel: { type: Boolean, required: true },
     sightSeeing: { type: Boolean, required: true },
     policyDetails: { type: mongoose_1.Schema.ObjectId, ref: IDatabaseSchema_1.IDatabaseSchema.POLICY_DETAILS },
-    itineraryDetails: { type: mongoose_1.Schema.ObjectId, ref: IDatabaseSchema_1.IDatabaseSchema.ITINERY_DETAILS },
+    itineraryDetails: {
+        type: mongoose_1.Schema.ObjectId,
+        ref: IDatabaseSchema_1.IDatabaseSchema.ITINERY_DETAILS,
+    },
     ctaPrimary: { type: String, required: true },
     amount: { type: Number, required: true },
     person: { type: Number, required: true },
     discount: { type: Number, required: false },
     amountAfterDiscount: { type: Number, required: false },
+    header: { type: String, required: true },
+    subHeader: { type: String, required: true },
+    ctaSecondary: { type: String, required: true },
+    pdfFile: { type: String, required: true },
 });
 exports.TripModel = (0, mongoose_1.model)(IDatabaseSchema_1.IDatabaseSchema.TRIP_DETAILS, tripDetailsSchema);

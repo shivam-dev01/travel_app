@@ -8,9 +8,9 @@ const policyDetailsSchema = new mongoose_1.Schema({
     exclusion: { type: [String], required: true },
     cancilation: { type: [String], required: true },
     paymentTerms: { type: [String], required: true },
-    note: { type: String, required: true },
+    note: { type: [String], required: true },
     Charges: { type: [String], required: true },
     tabName: { type: String, required: false },
-    tabDetails: { type: String, required: false }
+    tabDetails: { type: String, required: false },
 });
 exports.PolicyModel = (0, mongoose_1.model)(IDatabaseSchema_1.IDatabaseSchema.POLICY_DETAILS, policyDetailsSchema);

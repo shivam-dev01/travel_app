@@ -1,4 +1,3 @@
-
 import { Request, Response } from "express";
 import { TripDetailsProps } from "../types/tripDetails";
 import { TripModel } from "../models/tripDetails";
@@ -8,127 +7,120 @@ import fileHandler from "../utils/fileHandler";
 import { S3folderTypes } from "../interfaces/S3folderType";
 
 const tripController = {
-    createTrip: async (req: Request, res: Response) => {
+  createTrip: async (req: Request, res: Response) => {
+    try {
+      const file = req.file;
+      const bodyData: TripDetailsProps = req.body;
 
-        try {
-            const file = req.file
-            const bodyData: TripDetailsProps = req.body
+      if (!bodyData || !Object.keys(bodyData).length) {
+        throw new Error("No data provided.");
+      }
 
+      console.log("----bodyData----", bodyData);
+      console.log("-----file-----", file);
 
-            if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.')
-            }
+      if (!bodyData || !Object.keys(bodyData).length) {
+        throw new Error("No data provided.");
+      }
 
-            console.log('----bodyData----', bodyData)
-            console.log('-----file-----', file)
+      let fileData: { file: string | null; fileType: string | null } = {
+        file: null,
+        fileType: null,
+      };
 
-            if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.')
-            }
+      if (file) {
+        fileData.file = await fileHandler.uploadTos3(file, S3folderTypes.CARDS);
+        fileData.fileType = file.mimetype;
+      }
 
-            let fileData: { file: string | null, fileType: string | null } = {
-                file: null,
-                fileType: null
-            }
+      const result = await TripModel.create({ ...bodyData, ...fileData });
 
-            if (file) {
-                fileData.file = await fileHandler.uploadTos3(file, S3folderTypes.CARDS)
-                fileData.fileType = file.mimetype
-            }
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.trip.create
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-            const result = await TripModel.create({ ...bodyData, ...fileData })
+  getTrip: async (req: Request, res: Response) => {
+    try {
+      const result = await TripModel.find()
+        .populate("destination")
+        .populate("policyDetails")
+        .populate("itineraryDetails");
 
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.trip.create
-            )
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.trip.create
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
+  getTripById: async (req: Request, res: Response) => {
+    try {
+      const { tripId } = req.query;
 
-    getTrip: async (req: Request, res: Response) => {
+      if (!tripId) {
+        throw new Error("Trip Id is missing.");
+      }
 
-        try {
+      const result = await TripModel.findById(tripId)
+        .populate("destination")
+        .populate("policyDetails")
+        .populate("itineraryDetails");
 
-            const result = await TripModel.find().populate('destination').populate("policyDetails").populate("itineraryDetails")
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.banner.get
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-            return httpResponse.sendResponse(res,
-                result,
-                200,
-                messages.success.trip.create
-            )
+  getTripByDestinationId: async (req: Request, res: Response) => {
+    try {
+      const { destinationId } = req.query;
 
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
+      if (!destinationId) {
+        throw new Error("Destination Id is missing.");
+      }
 
-    getTripById: async (req: Request, res: Response) => {
-        try {
-            const { tripId } = req.query
+      const result = await TripModel.find({ destination: destinationId })
+        .populate("destination")
+        .populate("policyDetails")
+        .populate("itineraryDetails");
 
-            if (!tripId) {
-                throw new Error('Trip Id is missing.')
-            }
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.banner.get
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
 
-            const result = await TripModel.findById(tripId).populate('destination').populate("policyDetails").populate("itineraryDetails")
+  updateTrip: async () => {
+    try {
+    } catch (error) {}
+  },
 
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.banner.get
-            );
+  deleteTrip: async () => {
+    try {
+    } catch (error) {}
+  },
+};
 
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
-
-
-    getTripByDestinationId: async (req: Request, res: Response) => {
-        try {
-            const { destinationId } = req.query
-
-            if (!destinationId) {
-                throw new Error('Destination Id is missing.')
-            }
-
-            const result = await TripModel.find({ destination: destinationId }).populate('destination').populate("policyDetails").populate("itineraryDetails")
-
-            return httpResponse.sendResponse(
-                res,
-                result,
-                200,
-                messages.success.banner.get
-            );
-
-        } catch (error: any) {
-            httpResponse.sendErrorResponse(res, error, 400, error?.message);
-        }
-    },
-
-    updateTrip: async () => {
-
-        try {
-
-        } catch (error) {
-
-        }
-    },
-
-    deleteTrip: async () => {
-
-        try {
-
-        } catch (error) {
-
-        }
-    },
-}
-
-export default tripController
+export default tripController;

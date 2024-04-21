@@ -10,4 +10,5 @@ var IDatabaseSchema;
     IDatabaseSchema["TRIP_DETAILS"] = "TRIPDETAILS";
     IDatabaseSchema["POLICY_DETAILS"] = "POLICYDETAILS";
     IDatabaseSchema["ITINERY_DETAILS"] = "ITINERYDETAILS";
+    IDatabaseSchema["INQUIRY"] = "INQUIRY";
 })(IDatabaseSchema || (exports.IDatabaseSchema = IDatabaseSchema = {}));

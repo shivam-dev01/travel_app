@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import { replaceUrl } from "../../utils/replaceUrl";
-import { howWeWork, testimonialnData } from "../../constants/staticData";
+import { howWeWork } from "../../constants/staticData";
 import { Link, useNavigate } from "react-router-dom";
 import Inspiration from "../../components/inspiration/inspiration";
 import Testimonials from "../../components/testimonial/testimonial";
@@ -38,7 +38,7 @@ export default function Home() {
       <div
         id="section1"
         ref={sectionRefs.current[0]}
-        className="homeBannerBody"
+        className="homeBannerBody sm:h-[200px]"
       >
         {homeBanner.map((item, index) => {
           return (
@@ -209,7 +209,7 @@ export default function Home() {
 
       <Inspiration />
 
-      <Testimonials data={testimonialnData} />
+      <Testimonials />
 
       <div className="w-[100%] h-[745] mt-20 overflow-hidden relative flex justify-center pl-[33px] pr-[33px]">
         <img

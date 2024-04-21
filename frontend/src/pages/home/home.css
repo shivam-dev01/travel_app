@@ -89,3 +89,41 @@
   text-align: center;
   width: 900px;
 }
+
+@media screen and (max-width: 768px) {
+  .homeBody {
+    height: calc(100% - 80px);
+  }
+
+  .homeBannerBody {
+    height: 400px;
+    /* padding: 0 15px; */
+  }
+
+  .homeContent {
+    top: 100px;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .headerText {
+    font-size: 42px;
+  }
+
+  .subHeaderText {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .bookNowBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 24px;
+  }
+
+  .contentDesc {
+    width: 100%;
+  }
+}

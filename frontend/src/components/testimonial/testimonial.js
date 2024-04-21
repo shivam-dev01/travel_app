@@ -1,8 +1,26 @@
-import React from "react";
-import stars from "../../assets/image/stars.png";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as StarIcon } from "../../assets/svg/star.svg";
+import { axiosInstance } from "../../api/axiosIntance";
+import { apiEndPoints } from "../../constants/apiEndPoints";
 
-export default function Testimonials({ data = [] }) {
+export default function Testimonials() {
+  const [testimonialData, SetTestimonialData] = useState([]);
+
+  useEffect(() => {
+    getTestimonialData();
+  }, []);
+
+  async function getTestimonialData() {
+    try {
+      const result = await axiosInstance.get(apiEndPoints.getTestimonail);
+      if (result.data && result.data?.result) {
+        SetTestimonialData(result.data.result);
+      }
+    } catch (error) {
+      console.log("---ErrorGetTestimonialData--", error?.message);
+    }
+  }
+
   return (
     <div className="mt-[80px] pl-[33px] pr-[33px]">
       <h1 className="extraBoldFontFamily text-[45px] leading-[50px] text-black text-center">
@@ -12,14 +30,14 @@ export default function Testimonials({ data = [] }) {
         Don’t take our word for it. Trust our customers
       </p>
       <div className="flex overflow-x-scroll -scroll-20  mt-10 py-[28px] hideScrollBar">
-        {data.map((item, index) => {
+        {testimonialData?.map((item, index) => {
           return (
             <div
               key={index}
               className=" h-[266px] w-[496px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 "
             >
               <div className="flex">
-                {[...Array(item?.rating)].map((_, index) => {
+                {[...Array(item?.stars)].map((_, index) => {
                   return (
                     <div key={index} className="ml-2">
                       <StarIcon />
@@ -29,10 +47,10 @@ export default function Testimonials({ data = [] }) {
               </div>
 
               <h3 className="boldFontFamily text-[24px] leading-[31px] text-black mt-4">
-                {item?.header}
+                {item?.name}
               </h3>
               <p className="meduimFontFamily text-base text-black text-[17px] leading-[31px] mt-4">
-                {item?.subHeader}
+                {item?.description}
               </p>
             </div>
           );
