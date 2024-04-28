@@ -1,0 +1,86 @@
+.contactBody {
+  overflow-y: auto;
+  height: calc(100% - 115px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.contactBody::-webkit-scrollbar {
+  display: none;
+}
+
+.contactBannerBody {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  height: 545px;
+  padding-left: 33px;
+  padding-right: 33px;
+  margin-top: 10px;
+}
+
+.contactBanner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.contactImageBanner {
+  width: 100%;
+  height: 100%;
+}
+
+.contactContent {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 210px;
+  padding-left: 62px;
+}
+
+.contactsubHeaderText {
+  font-size: 16px;
+  font-family: "Medium";
+  color: #ffffff;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.bookNowBtn {
+  border: 1px solid;
+  border-radius: 144px;
+  padding: 12px 25px 12px 25px;
+  cursor: pointer;
+  color: #3b9aa4;
+  font-family: "Regular";
+  font-size: 18px;
+  margin-top: 32px;
+}
+
+.middleContactContentBody {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  margin-top: 80px;
+  padding-left: 33px;
+  padding-right: 33px;
+}
+
+.contentDesc {
+  text-align: center;
+  width: 900px;
+}
+
+.answerAnimation {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+}
+
+.answerAnimation.open {
+  max-height: 200px;
+}

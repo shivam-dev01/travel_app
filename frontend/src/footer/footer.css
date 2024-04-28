@@ -1,0 +1,13 @@
+.footerBody {
+  /* height: 589px; */
+  /* border: 1px solid; */
+  /* margin-top: 30px; */
+  padding-top: 75px;
+  /* height: 342px; */
+}
+.sec-cont {
+  /* height: 50px; */
+  background-color: #f2e6d7;
+  display: flex;
+  justify-content: center;
+}

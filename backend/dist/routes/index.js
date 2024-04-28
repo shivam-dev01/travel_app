@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const trip_1 = __importDefault(require("./trip"));
+const testimonial_1 = __importDefault(require("./testimonial"));
+const policy_1 = __importDefault(require("./policy"));
+const banner_1 = __importDefault(require("./banner"));
+const destination_1 = __importDefault(require("./destination"));
+const itinerary_1 = __importDefault(require("./itinerary"));
+const inquiry_1 = __importDefault(require("./inquiry"));
+const route = (0, express_1.default)();
+route.use("/trip", trip_1.default);
+route.use("/testimonial", testimonial_1.default);
+route.use("/policy", policy_1.default);
+route.use("/banner", banner_1.default);
+route.use("/destination", destination_1.default);
+route.use("/itinerary", itinerary_1.default);
+route.use("/inquiry", inquiry_1.default);
+exports.default = route;

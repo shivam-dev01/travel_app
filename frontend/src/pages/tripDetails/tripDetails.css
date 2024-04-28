@@ -1,0 +1,14 @@
+.animationItinerary {
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+}
+
+.animationItinerary.itineryOpen {
+  max-height: 400px;
+  margin-left: 12px;
+  padding-right: 8px;
+  margin-top: 12px;
+}
