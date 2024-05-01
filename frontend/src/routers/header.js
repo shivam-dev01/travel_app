@@ -70,69 +70,77 @@ export default function Header() {
 
   return (
     <header className="top-header">
-      <Link to={"/"} onClick={() => onToggleMenu(0)}>
-        <img src={logoImage} alt="Logo" className="logoImage" />
-      </Link>
+      <div className="container mx-auto  flex justify-between items-center pt-[80px] pb-[35px]">
+        <Link to={"/"} onClick={() => onToggleMenu(0)}>
+          <img
+            src={logoImage}
+            alt="Logo"
+            className="logoImage object-contain"
+          />
+        </Link>
 
-      <div className="flex">
-        {menu.map((item, index) => {
-          return (
-            <div key={index} className="relative">
-              <Link
-                to={item.name !== "Destinations" ? item.slug : null}
-                className={item.isActive ? "activeRouteLink" : "routeLinks"}
-                onClick={() => onToggleMenu(index)}
-              >
-                {item.name}
-              </Link>
-              {item.name === "Destinations" && (
-                <img
-                  src={upDown}
-                  alt="oh yeah"
-                  className={`absolute top-[11px] right-[18px] ${
-                    activeIndex ? `transform rotate-0` : "transform rotate-180"
-                  }`}
-                />
-              )}
-              {item.name === "Destinations" && index === activeIndex && (
-                <div
-                  ref={modalRef}
-                  className="absolute flex flex-col z-50 items-center left-0 w-[310px] bg-white rounded-xl py-5 shadow-lg top-8"
+        <div className="hidden md:flex text-[12px]">
+          {menu.map((item, index) => {
+            return (
+              <div key={index} className="relative">
+                <Link
+                  to={item.name !== "Destinations" ? item.slug : null}
+                  className={item.isActive ? "activeRouteLink" : "routeLinks"}
+                  onClick={() => onToggleMenu(index)}
                 >
-                  <h3 className="semiBoldFontFamily text-lg text-black align-middle mb-2">
-                    Destination Packages
-                  </h3>
-                  <div className="px-6 w-[100%] border-t-[1.8px] border-y-grayCustom pb-5">
-                    {item.subMenu?.map((subItem, subIndex) => (
-                      <div
-                        key={subIndex}
-                        className="flex border-b-[1.8px] w-[100%] justify-between items-center border-y-grayCustom cursor-pointer"
-                        onClick={closeModal}
-                      >
-                        <Link
-                          to={`${item.slug}/${subItem?._id}`}
-                          className="regularFontFamily text-lg py-3"
+                  {item.name}
+                </Link>
+                {item.name === "Destinations" && (
+                  <img
+                    src={upDown}
+                    alt="oh yeah"
+                    className={`absolute top-[11px] right-[18px] ${
+                      activeIndex
+                        ? `transform rotate-0`
+                        : "transform rotate-180"
+                    }`}
+                  />
+                )}
+                {item.name === "Destinations" && index === activeIndex && (
+                  <div
+                    ref={modalRef}
+                    className="absolute flex flex-col z-50 items-center left-0 w-[310px] bg-white rounded-xl py-5 shadow-lg top-8"
+                  >
+                    <h3 className="semiBoldFontFamily text-lg text-black align-middle mb-2">
+                      Destination Packages
+                    </h3>
+                    <div className="px-6 w-[100%] border-t-[1.8px] border-y-grayCustom pb-5">
+                      {item.subMenu?.map((subItem, subIndex) => (
+                        <div
+                          key={subIndex}
+                          className="flex border-b-[1.8px] w-[100%] justify-between items-center border-y-grayCustom cursor-pointer"
+                          onClick={closeModal}
                         >
-                          {subItem?.header}
-                        </Link>
-                        <img src={chevron} alt="chevron" />
-                      </div>
-                    ))}
+                          <Link
+                            to={`${item.slug}/${subItem?._id}`}
+                            className="regularFontFamily text-lg py-3"
+                          >
+                            {subItem?.header}
+                          </Link>
+                          <img src={chevron} alt="chevron" />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
 
-      <Link
-        to={"/contact-us#form"}
-        className="bookNowButton"
-        onClick={() => onToggleMenu(5)}
-      >
-        Book Now
-      </Link>
+        <Link
+          to={"/contact-us#form"}
+          className="bookNowButton"
+          onClick={() => onToggleMenu(5)}
+        >
+          Book Now
+        </Link>
+      </div>
     </header>
   );
 }

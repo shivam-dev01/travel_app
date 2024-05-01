@@ -12,7 +12,7 @@ export default function Faqs() {
 
   return (
     <div className="mt-14 bg-[#ECF5F6] py-[54px] px-[33px]">
-      <div className=" extraBoldFontFamily text-heading text-[45px] leading-[55px] font-semibold">
+      <div className=" extraBoldFontFamily text-heading text-[25px] md:text-[45px] leading-[55px] font-semibold">
         FAQ’s
       </div>
       <div className="faq-question h-fit w-full mt-4 bg-[#fff]">
@@ -23,9 +23,9 @@ export default function Faqs() {
             onClick={() => toggleAnswer(index)}
           >
             <div className="m-0 p-0 max-w-[1200px]">
-              <div className="flex items-center">
-                <div className="text-3xl font-bold text-[#acacac]">{`0${item.number}`}</div>
-                <h2 className="text-2xl font-bold ml-2">{item.question}</h2>
+              <div className="flex  gap-2">
+                <div className="text-md md:text-3xl font-bold text-[#acacac]">{`0${item.number}`}</div>
+                <h2 className="text-md md:text-2xl font-bold ml-2 ">{item.question}</h2>
               </div>
               <div
                 className={`answerAnimation ${

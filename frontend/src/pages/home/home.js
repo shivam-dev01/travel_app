@@ -38,7 +38,7 @@ export default function Home() {
       <div
         id="section1"
         ref={sectionRefs.current[0]}
-        className="homeBannerBody sm:h-[200px]"
+        className="homeBannerBody hidden md:flex sm:h-[200px]"
       >
         {homeBanner.map((item, index) => {
           return (
@@ -49,7 +49,7 @@ export default function Home() {
                 className="homeImageBanner"
               />
               <div className="homeContent">
-                <h1 className="headerText">{item.header}</h1>
+                <h1 className="headerText text-nowrap">{item.header}</h1>
                 <p className="subHeaderText">{item.subHeader}</p>
                 <button
                   className="bookNowBtn bg-white outline-none border-none"
@@ -68,7 +68,7 @@ export default function Home() {
         ref={sectionRefs.current[1]}
         className="middleContentBody"
       >
-        <h1 className="extraBoldFontFamily text-5xl mt-16 leading-none">
+        <h1 className="extraBoldFontFamily text-5xl mt-56 md:mt-16 leading-none">
           Welcome To India
         </h1>
         <p className="regularFontFamily text-2xl mt-5 leading-none">
@@ -90,21 +90,21 @@ export default function Home() {
       <div
         id="section3"
         ref={sectionRefs.current[2]}
-        className="w-full flex mt-20 gap-5 pl-[33px] pr-[33px]"
+        className="w-full flex flex-col md:flex-row mt-[317px]  md:mt-20 gap-5 pl-0 pr-0 md:pl-[33px] md:pr-[33px]"
       >
         {welcomeBanner.map((item, index) => {
           return (
             <div
               key={index}
-              className="flex-1 h-[325px] m-0 p-0 rounded-3xl overflow-hidden relative lg:h-[650px]"
+              className="flex-1  m-0 px-2 md:p-0  rounded-3xl overflow-hidden relative lg:h-[650px]"
             >
               <img src={replaceUrl(item.file)} className="w-full h-full" />
 
-              <div className="absolute top-14 left-11 w-[490px]">
-                <h2 className="extraBoldFontFamily text-4xl text-white">
+              <div className="absolute top-14 left-11 w-[320px] md:w-[490px]">
+                <h2 className="extraBoldFontFamily text-xl md:text-2xl lg:text-4xl text-white">
                   {item.header}
                 </h2>
-                <div className="meduimFontFamily text-sm text-white mt-2">
+                <div className="meduimFontFamily text-[12px]  text-left  text-white mt-2">
                   {item.subHeader}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
         <h1 className="extraBoldFontFamily text-center text-3xl mb-7">
           How we work
         </h1>
-        <div className="flex justify-between">
+        <div className="flex flex-col items-center gap-4 md:flex-row justify-between">
           {howWeWork.map((item, index) => {
             return (
               <div
@@ -168,12 +168,12 @@ export default function Home() {
       <div id="section6" ref={sectionRefs.current[5]} className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
-            <div key={index} className="flex justify-between p-8">
-              <div className="w-[50%] pl-16 pr-16 flex flex-col justify-center">
+            <div key={index} className="flex flex-col gap-3 md:flex-row justify-between p-8">
+              <div className="px-4 md:px-16 flex flex-col justify-center">
                 <p className="meduimFontFamily text-xs text-black">
                   {item.topHeader}
                 </p>
-                <h1 className="extraBoldFontFamily text-3xl text-black mt-5">
+                <h1 className="extraBoldFontFamily text-lg md:text-3xl text-black mt-5">
                   {item.header}
                 </h1>
                 <p className="regularFontFamily text-sm text-black mt-5">
@@ -196,10 +196,10 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="w-[50%] p-33 h-[551px] rounded-3xl">
+              <div className="p-33 h-[551px] rounded-3xl">
                 <img
                   src={item.file}
-                  className="w-[100%] h-[100%] rounded-3xl"
+                  className="w-[100%] h-[100%] object-fit rounded-3xl"
                 />
               </div>
             </div>

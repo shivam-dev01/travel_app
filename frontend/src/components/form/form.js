@@ -114,13 +114,15 @@ export default function InputForm() {
         <div className="boldFontFamily mt-2 text-red">Error: {error}</div>
       )}
 
-      <button
-        className="bg-[#3B9AA4] p-2 w-full mt-8 h-14 rounded-full text-[#fff]"
+     <div className="flex justify-center">
+     <button
+        className="bg-[#3B9AA4]  p-2 w-1/2 lg:w-full mt-8 h-14 rounded-full text-[#fff]"
         disabled={loading}
         onClick={handleSubmit}
       >
         {loading ? "Loading..." : "Submit"}
       </button>
+     </div>
       <ToastContainer />
     </div>
   );

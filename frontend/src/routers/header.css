@@ -1,19 +1,18 @@
 .top-header {
   background-color: #F2EEE9;
   /* color: white; */
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding-left: 33px;
-  padding-right: 33px;
+ width: 100%;
 }
 
 .logoImage {
-  width: 158px;
-  height: 45px;
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+  width: 158px; 
+  height: 45px; 
+  object-fit: contain;
 }
+
 
 .routeLinks {
   margin: 30px;
@@ -24,7 +23,7 @@
 }
 
 .activeRouteLink {
-  margin: 30px;
+  /* margin: 30px; */
   font-size: 14px;
   font-family: "Bold";
   color: #1c1c1c;
@@ -42,15 +41,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 16px 10px 16px;
   color: #ffffff;
   font-family: "Regular";
+  width: 100px;
+  padding: 12px 0px;
+  font-size: 14px;
 }
 
-/* Media queries for responsive design */
 @media (max-width: 768px) {
   .top-header {
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 10px;
   }
 
@@ -61,5 +61,35 @@
 
   .book-now {
     margin: 0;
+  }
+
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .bookNowButton {
+  
+    color: #ffffff;
+    font-size: 11px;
+    padding: 8px 2px;
+  
+  }
+}
+@media (min-width: 769px) and (max-width: 1140px) {
+  .routeLinks {
+    margin: 30px;
+    font-size: 12px;
+    font-family: "Regular";
+    color: #1c1c1c;
+    text-decoration: none;
+    text-wrap: nowrap;
+  }
+  
+  .activeRouteLink {
+    margin: 30px;
+    font-size: 14px;
+    font-family: "Bold";
+    color: #1c1c1c;
+    text-decoration: none;
+    text-wrap: nowrap;
   }
 }

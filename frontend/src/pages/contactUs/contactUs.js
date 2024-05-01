@@ -30,13 +30,13 @@ export default function ContactUs() {
         </div>
       </div>
 
-      <div className="middleContactContentBody ">
-        <div className="first-cont flex flex-row justify-between space-x-10">
-          <div className="heading   p-[40px]  w-[50%]  border-2 border-[#3B9AA4] rounded-xl">
-            <h1 className="heading  extraBoldFontFamily text-[44px] text-[#1C1C1C] leading-[66px]">
+      <div className="px-4 md:px-8 w-full mt-12 ">  
+        <div className="flex flex-col w-full md:flex-row gap-8">
+          <div className="heading   p-[40px]    border-2 border-[#3B9AA4] rounded-xl md:w-1/2">
+            <h1 className="heading  extraBoldFontFamily text-[30px] md:text-[44px] text-[#1C1C1C] leading-[66px]">
               Reach Us
             </h1>
-            <p className="text-hed regularFontFamily text-[16px] leading-[24px] text-[#666666] mt-5">
+            <p className="text-hed regularFontFamily text-[14px] md:text-[16px] leading-[24px] text-[#666666] mt-5">
               We at Tripp Karo understand all of your tour and travelling needs
               and provide packages for different domestic and international
               destination to make your TOUR one of a kind experience of your
@@ -44,21 +44,21 @@ export default function ContactUs() {
             </p>
             <div className="contactUs mt-5 flex justify-between">
               <ul className="w-full">
-                <li className="list w-full flex h-[55px] ">
-                  <img className="img h-[54px] w-[54px]" src={location}></img>
-                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
+                <li className="list w-full flex items-center gap-4 h-[55px] ">
+                  <img className="img h-[35px] w-[35px] lg:h-[54px] lg:w-[54px]" src={location}></img>
+                  <h1 className="text-[#3B9AA4] text-nowrap text-[17px] lg:text-[23px] leading-[35px] semiBoldFontFamily ">
                     Sector 62, Noida
                   </h1>
                 </li>
-                <li className="list w-full flex h-[55px]  mt-5">
-                  <img className="img h-[54px] w-[54px]" src={phone}></img>
-                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
+                <li className="list w-full flex h-[55px] items-center gap-4  mt-5">
+                  <img className="img h-[35px] w-[35px] lg:h-[54px] lg:w-[54px]" src={phone}></img>
+                  <h1 className="text-[#3B9AA4] text-nowrap text-[17px] lg:text-[23px] leading-[35px] semiBoldFontFamily">
                     +91 8506 086 055
                   </h1>
                 </li>
-                <li className="list w-full flex h-[55px] mt-5">
-                  <img className="img h-[54px] w-[54px]" src={message}></img>
-                  <h1 className="text-[#3B9AA4] text-[23px] leading-[35px] semiBoldFontFamily ml-10 mt-2 ">
+                <li className="list w-full flex h-[55px] gap-4 items-center mt-5">
+                  <img className="img h-[35px] w-[35px] lg:h-[54px] lg:w-[54px]" src={message}></img>
+                  <h1 className="text-[#3B9AA4] text-nowrap text-[17px] lg:text-[23px] leading-[35px] semiBoldFontFamily">
                     <a
                       href="mailto:operations@trippkaro.com"
                       className="underline"
@@ -74,7 +74,7 @@ export default function ContactUs() {
 
           <div
             ref={formRef}
-            className="form  flex justify-center pt-[65px] pl-[78px] pr-[78px] w-[50%]  border-2 border-[#3B9AA4] rounded-xl "
+            className="form md:w-1/2 flex justify-center px-4  py-6 md:px-8  border-2 border-[#3B9AA4] rounded-xl "
           >
             <InputForm />
           </div>

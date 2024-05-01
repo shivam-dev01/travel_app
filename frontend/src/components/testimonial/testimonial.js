@@ -22,7 +22,7 @@ export default function Testimonials() {
   }
 
   return (
-    <div className="mt-[80px] pl-[33px] pr-[33px]">
+    <div className="mt-0 md:mt-[80px] pl-[33px] pr-[33px]">
       <h1 className="extraBoldFontFamily text-[45px] leading-[50px] text-black text-center">
         What People are Saying
       </h1>
@@ -34,19 +34,19 @@ export default function Testimonials() {
           return (
             <div
               key={index}
-              className=" h-[266px] w-[496px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 "
+              className="h-[366px] w-[280px] md:h-[266px] md:w-[496px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 "
             >
               <div className="flex">
                 {[...Array(item?.stars)].map((_, index) => {
                   return (
                     <div key={index} className="ml-2">
-                      <StarIcon />
+                      <StarIcon/>
                     </div>
                   );
                 })}
               </div>
 
-              <h3 className="boldFontFamily text-[24px] leading-[31px] text-black mt-4">
+              <h3 className="boldFontFamily text-[14px] md:text-[24px] leading-[31px] text-black mt-4">
                 {item?.name}
               </h3>
               <p className="meduimFontFamily text-base text-black text-[17px] leading-[31px] mt-4">
