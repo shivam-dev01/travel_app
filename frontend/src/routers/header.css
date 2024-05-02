@@ -46,6 +46,9 @@
   width: 100px;
   padding: 12px 0px;
   font-size: 14px;
+  text-align: center;
+
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -61,6 +64,10 @@
 
   .book-now {
     margin: 0;
+  }
+  .bookNowButton {
+    display: none;
+  
   }
 
 

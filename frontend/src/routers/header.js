@@ -6,6 +6,7 @@ import logoImage from "../assets/image/tippKaroLogo.png";
 import chevron from "../assets/svg/chevron.svg";
 import useTrippStore from "../zustand/trippStore";
 import upDown from "../assets/svg/upDown.svg";
+import bars from '../assets/svg/bars.svg'
 
 export default function Header() {
   const { destination, getBannerData } = useTrippStore((state) => state);
@@ -70,7 +71,7 @@ export default function Header() {
 
   return (
     <header className="top-header">
-      <div className="container mx-auto  flex justify-between items-center pt-[80px] pb-[35px]">
+      <div className="container mx-auto  flex justify-between items-center pt-[60px] pb-[15px] md:pt-[80px] md:pb-[35px]">
         <Link to={"/"} onClick={() => onToggleMenu(0)}>
           <img
             src={logoImage}
@@ -135,11 +136,14 @@ export default function Header() {
 
         <Link
           to={"/contact-us#form"}
-          className="bookNowButton"
+          className="bookNowButton hidden"
           onClick={() => onToggleMenu(5)}
         >
           Book Now
         </Link>
+        <div className="md:hidden">
+          <img alt="menu" className="pr-8 cursor-pointer " src={bars}/>
+        </div>
       </div>
     </header>
   );
