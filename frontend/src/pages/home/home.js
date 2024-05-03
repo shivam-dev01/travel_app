@@ -168,7 +168,10 @@ export default function Home() {
       <div id="section6" ref={sectionRefs.current[5]} className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
-            <div key={index} className="flex flex-col gap-3 md:flex-row justify-between p-8">
+            <div
+              key={index}
+              className="flex flex-col gap-3 md:flex-row justify-between p-8"
+            >
               <div className="px-4 md:px-16 flex flex-col justify-center">
                 <p className="meduimFontFamily text-xs text-black">
                   {item.topHeader}

@@ -32,7 +32,7 @@ const bannerController = {
         fileData.fileType = file.mimetype;
       }
 
-      const result = await BannerModel.create({ ...bodyData, ...fileData });
+      const result = await BannerModel.create({ ...bodyData });
 
       return httpResponse.sendResponse(
         res,
