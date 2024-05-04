@@ -6,16 +6,14 @@ import logoImage from "../assets/image/tippKaroLogo.png";
 import chevron from "../assets/svg/chevron.svg";
 import useTrippStore from "../zustand/trippStore";
 import upDown from "../assets/svg/upDown.svg";
-import bars from '../assets/svg/bars.svg'
+import bars from '../assets/svg/bars.svg';
 
 export default function Header() {
   const { destination, getBannerData } = useTrippStore((state) => state);
   const [menu, setMenu] = useState(routes);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null);
   const modalRef = useRef(null);
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-
-
 
   useEffect(() => {
     if (destination.length) {
@@ -28,16 +26,20 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setIsPopoverOpen(false);
+        setActiveIndex(null);
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    if (activeIndex !== null) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [activeIndex]);
 
   const updateDestination = async () => {
     try {
