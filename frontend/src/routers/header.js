@@ -13,6 +13,9 @@ export default function Header() {
   const [menu, setMenu] = useState(routes);
   const [activeIndex, setActiveIndex] = useState(null);
   const modalRef = useRef(null);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+
 
   useEffect(() => {
     if (destination.length) {
@@ -25,20 +28,16 @@ export default function Header() {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setActiveIndex(null);
+        setIsPopoverOpen(false);
       }
     };
 
-    if (activeIndex !== null) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [activeIndex]);
+  }, []);
 
   const updateDestination = async () => {
     try {
@@ -142,9 +141,12 @@ export default function Header() {
           Book Now
         </Link>
         <div className="md:hidden">
-          <img alt="menu" className="pr-8 cursor-pointer " src={bars}/>
+          <img  onClick={()=>setIsPopoverOpen(!isPopoverOpen)} alt="menu" className="pr-8 cursor-pointer " src={bars}/>
         </div>
       </div>
     </header>
   );
 }
+
+
+

@@ -56,6 +56,14 @@
   margin: 0;
 }
 
+.AboutHeaderText {
+  font-size: 108px;
+  font-family: "AgainstRegular";
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
 .subHeaderText {
   font-size: 16px;
   font-family: "Medium";
@@ -128,6 +136,10 @@
 
   .contentDesc {
     width: 100%;
+  }
+  .AboutHeaderText {
+    font-size: 40px;
+    margin-bottom: 12px;
   }
 }
 

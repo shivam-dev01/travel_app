@@ -33,12 +33,12 @@ export default function TopHeader() {
           <div className="ml-4 cursor-pointer">
             <InstagramIcon />
           </div>
-          <div className="ml-4 cursor-pointer">
+          {/* <div className="ml-4 cursor-pointer">
             <XIcon />
           </div>
           <div className="ml-4 cursor-pointer">
             <YouTubeIcon />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
