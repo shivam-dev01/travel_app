@@ -38,7 +38,7 @@ export default function Home() {
       <div
         id="section1"
         ref={sectionRefs.current[0]}
-        className="homeBannerBody sm:h-[200px]"
+        className="homeBannerBody sm:h-[200px]" 
       >
         {homeBanner.map((item, index) => {
           return (
@@ -101,10 +101,10 @@ export default function Home() {
               <img src={replaceUrl(item.file)} className="w-full h-full" />
 
               <div className="absolute top-14 left-11 w-[490px]">
-                <h2 className="extraBoldFontFamily text-4xl text-white">
+                <h2 className="extraBoldFontFamily lg-text-4xl text-3xl text-white">
                   {item.header}
                 </h2>
-                <div className="meduimFontFamily text-sm text-white mt-2">
+                <div className="meduimFontFamily lg-text-sm text-xs text-white mt-2">
                   {item.subHeader}
                 </div>
               </div>
@@ -127,12 +127,12 @@ export default function Home() {
         <h1 className="extraBoldFontFamily text-center text-3xl mb-7">
           How we work
         </h1>
-        <div className="flex justify-between">
+        <div className="workCardFlex flex justify-between">
           {howWeWork.map((item, index) => {
             return (
               <div
                 key={index}
-                className="pl-5 pb-5 w-[325px] h-[185px] flex flex-col justify-end rounded-xl bg-grayCustom"
+                className="Workcard pl-5 pb-5 w-[300px]  h-[185px] flex flex-col justify-end rounded-xl bg-grayCustom"
               >
                 <img src={item.icon} className="w-5 h-5 mb-[14px]" />
                 <div className="boldFontFamily text-sm text-black  mb-4">
@@ -168,8 +168,8 @@ export default function Home() {
       <div id="section6" ref={sectionRefs.current[5]} className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
-            <div key={index} className="flex justify-between p-8">
-              <div className="w-[50%] pl-16 pr-16 flex flex-col justify-center">
+            <div key={index} className="ourOffers flex justify-between p-8">
+              <div className="firstCont w-[50%]  pl-16 pr-16 flex flex-col justify-center">
                 <p className="meduimFontFamily text-xs text-black">
                   {item.topHeader}
                 </p>
@@ -180,9 +180,9 @@ export default function Home() {
                   {item.subHeader}
                 </p>
 
-                <div className="mt-5">
+                <div className=" mt-5">
                   <button
-                    className="meduimFontFamily  bg-skyBule text-white rounded-full pl-4 pr-4 pt-[10px] pb-[10px]"
+                    className="btns-cont meduimFontFamily  bg-skyBule text-white rounded-full pl-4 pr-4 pt-[10px] pb-[10px]"
                     onClick={() => onBookNow(navigation)}
                   >
                     {item.ctaPrimary}
@@ -190,13 +190,13 @@ export default function Home() {
 
                   <Link
                     to={`destination/${item?._id}`}
-                    className="meduimFontFamily text-black rounded-full ml-5 border pl-4 pr-4 pt-[10px] pb-[10px]"
+                    className="btns-cont meduimFontFamily text-black rounded-full ml-5 border pl-4 pr-4 pt-[10px] pb-[10px]"
                   >
                     {item.ctaSecondary}
                   </Link>
                 </div>
               </div>
-              <div className="w-[50%] p-33 h-[551px] rounded-3xl">
+              <div className="img-cont w-[50%] p-33 h-[551px] rounded-3xl">
                 <img
                   src={item.file}
                   className="w-[100%] h-[100%] rounded-3xl"
@@ -228,6 +228,7 @@ export default function Home() {
           <img src={skyCircle} className="w-14 h-14 cursor-pointer" />
         </div>
       </div>
+
       <Footer />
     </div>
   );

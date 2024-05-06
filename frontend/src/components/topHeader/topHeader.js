@@ -7,7 +7,7 @@ import { ReactComponent as YouTubeIcon } from "../../assets/svg/Youtube.svg";
 export default function TopHeader() {
   return (
     <div className="flex bg-black items-center justify-between px-[33px] py-[10px] transitionClass">
-      <div className="flex">
+      <div className="flex animate-infinite-scroll">
         <div className="semiBoldFontFamily text-white">
           Call us @:{" "}
           <span className="text-[#3B9AA4] font-semibold">

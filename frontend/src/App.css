@@ -15,6 +15,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -74,5 +75,81 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1320px) and (min-width: 1025px) {
+  .Workcard{
+    width: 200px;
+    padding-left: 0.5rem;
+
+  }
+}
+
+@media screen and ( max-width: 1024px ) and ( min-width:700px ){
+  .Workcard{
+    width: 150px;
+    padding-left: 0.5rem;
+
+  }
+  .ourOffers{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .firstCont{
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* .Workcard{
+    width: 200px;
+    padding-left: 0.5rem;
+  } */
+
+  .workCardFlex{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .ourOffers{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .firstCont{
+    padding: 0px;
+  }
+  .btns-cont  {
+    font-size: small;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+  }
+  .img-cont{
+    width: 100%;
+  }
+  .flex-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .flex-cont p{
+    font-size: xx-large;
+  }
+  .card-cont{
+    width: 360px;
+  }
+  .card-cont p{
+    font-size: 12px;
+
   }
 }

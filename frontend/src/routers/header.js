@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useMediaQuery } from 'react-responsive';
+import classNames from 'classnames';
 import "./header.css";
 import { Link } from "react-router-dom";
 import { routes } from "../constants/routes";
@@ -8,6 +10,10 @@ import useTrippStore from "../zustand/trippStore";
 import upDown from "../assets/svg/upDown.svg";
 
 export default function Header() {
+  const [isMenuCollapsed, setMenuCollapsed] = useState(false);
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1024px)' }); // lg screen width
+
+
   const { destination, getBannerData } = useTrippStore((state) => state);
   const [menu, setMenu] = useState(routes);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -68,13 +74,25 @@ export default function Header() {
     setActiveIndex(null);
   }
 
+  
+  const handleToggleMenu = () => {
+    setMenuCollapsed(!isMenuCollapsed);
+  };
+  const menuClasses = classNames('menu', { 'flex': isLargeScreen, 'hidden': !isLargeScreen && isMenuCollapsed });
+
+
   return (
     <header className="top-header">
       <Link to={"/"} onClick={() => onToggleMenu(0)}>
         <img src={logoImage} alt="Logo" className="logoImage" />
       </Link>
 
-      <div className="flex">
+      <button className="collapse-button lg:hidden" onClick={handleToggleMenu}>
+        {isMenuCollapsed ? 'Show Menu' : 'Hide Menu'}
+      </button>
+
+
+      <div className={menuClasses}>
         {menu.map((item, index) => {
           return (
             <div key={index} className="relative">

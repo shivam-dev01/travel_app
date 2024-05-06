@@ -34,7 +34,7 @@ export default function Testimonials() {
           return (
             <div
               key={index}
-              className=" h-[266px] w-[496px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 "
+              className="card-cont h-[266px] w-[496px] flex-shrink-0 mr-4  bg-pinkCustom rounded-2xl pt-10 px-5 "
             >
               <div className="flex">
                 {[...Array(item?.stars)].map((_, index) => {
