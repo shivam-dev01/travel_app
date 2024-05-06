@@ -63,8 +63,8 @@ export default function Destination() {
                 alt="Home"
                 className="homeImageBanner"
               />
-              <div className="absolute flex flex-col top-[210px] justify-center items-center px-[158px]">
-                <h1 className="againstRegularFontFamily text-white text-7xl mb-5">
+              <div className="absolute flex flex-col top-[20px] md:top-[210px] justify-center items-center px-[24px] md:px-[158px]">
+                <h1 className="againstRegularFontFamily text-white text-lg text-nowrap md:text-wrap md:text-7xl mb-5">
                   {item?.header}
                 </h1>
                 <p className="subHeaderText">{item?.subHeader}</p>
@@ -80,7 +80,7 @@ export default function Destination() {
         })}
       </div>
 
-      <div className="flex flex-col justify-center items-center mt-20 mx-[300px] text-center">
+      <div className="flex flex-col justify-center items-center mt-20 mx-12 md:mx-[300px] text-center">
         <h1 className="extraBoldFontFamily text-5xl text-black">
           Start a Reservation
         </h1>
@@ -183,7 +183,7 @@ export default function Destination() {
         })}
       </div>
 
-      <div className="px-[154px] mt-20">
+      <div className="px-12  lg:px-[154px] mt-20">
         <CustomPackage
           header="Need Custom Package"
           title="Tripp Karo understands that planning a trip can be overwhelming, which is why we’ve made it our mission to make it easy and enjoyable for you. If you have an unique request for package reach us we will resolve it immediately "

@@ -22,7 +22,7 @@ export default function Testimonials() {
   }
 
   return (
-    <div className="mt-0 md:mt-[80px] pl-[33px] pr-[33px]">
+    <div className="mt-8 md:mt-[80px] pl-[33px] pr-[33px]">
       <h1 className="extraBoldFontFamily text-[45px] leading-[50px] text-black text-center">
         What People are Saying
       </h1>

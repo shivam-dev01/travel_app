@@ -6,11 +6,12 @@ import logoImage from "../assets/image/tippKaroLogo.png";
 import chevron from "../assets/svg/chevron.svg";
 import useTrippStore from "../zustand/trippStore";
 import upDown from "../assets/svg/upDown.svg";
-import bars from "../assets/svg/bars.svg";
+import bars from '../assets/svg/bars.svg';
 
 export default function Header() {
   const { destination, getBannerData } = useTrippStore((state) => state);
   const [menu, setMenu] = useState(routes);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -152,29 +153,12 @@ export default function Header() {
         </div> */}
 
         <div className="md:hidden">
-          <img
-            alt="menu"
-            className="pr-8 cursor-pointer"
-            src={bars}
-            onClick={toggleMenu}
-          />
-
-          {isMenuOpen && (
-            <div className="absolute top-0 right-0 bg-white w-64 p-4 shadow-lg flex flex-col">
-              {menu.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.name !== "Destinations" ? item.slug : null}
-                  className={item.isActive ? "activeRouteLink" : "routeLinks"}
-                  onClick={() => onToggleMenu(index)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          )}
+          <img  onClick={()=>setIsPopoverOpen(!isPopoverOpen)} alt="menu" className="pr-8 cursor-pointer " src={bars}/>
         </div>
       </div>
     </header>
   );
 }
+
+
+

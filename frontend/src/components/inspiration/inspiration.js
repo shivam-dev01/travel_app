@@ -12,7 +12,7 @@ export default function Inspiration() {
         there’s anything else I can assist you with!
       </p>
 
-      <div className="flex flex-1 mt-9">
+      <div className="flex flex-col md:flex-row gap-4 mt-9">
         {inspirationData.map((item, index) => {
           return (
             <div key={index} className="h-[320px] overflow-hidden relative rounded-2xl mx-5">

@@ -96,18 +96,21 @@ export default function InputForm() {
         className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Full Name"
         onChange={onChangeFullName}
+        value={inputData.fullName}
       ></input>
 
       <input
         className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Phone Number"
         onChange={onChangePhone}
+        value={inputData.phone}
       ></input>
 
       <input
         className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Email Address"
         onChange={onChangeEmail}
+        value={inputData.email}
       ></input>
 
       {error && (
