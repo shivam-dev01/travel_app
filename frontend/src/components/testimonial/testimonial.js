@@ -22,7 +22,7 @@ export default function Testimonials() {
   }
 
   return (
-    <div className="mt-8 md:mt-[80px] pl-[33px] pr-[33px]">
+    <div className="mt-8 md:mt-[80px] px-4 lg:px-[33px]">
       <h1 className="extraBoldFontFamily text-[45px] leading-[50px] text-black text-center">
         What People are Saying
       </h1>
@@ -40,7 +40,7 @@ export default function Testimonials() {
                 {[...Array(item?.stars)].map((_, index) => {
                   return (
                     <div key={index} className="ml-2">
-                      <StarIcon/>
+                      <StarIcon />
                     </div>
                   );
                 })}

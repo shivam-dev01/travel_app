@@ -14,8 +14,8 @@
   flex-direction: column;
   flex: auto;
   height: 545px;
-  padding-left: 33px;
-  padding-right: 33px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .aboutBanner {
@@ -89,7 +89,6 @@
   text-align: center;
   width: 900px;
 }
-
 
 .aboutBody {
   overflow-y: auto;
@@ -178,6 +177,8 @@
 @media screen and (max-width: 768px) {
   .aboutSubHeaderText {
     font-size: 14px;
-
+  }
+  .aboutBannerBody {
+    padding: 0 16px;
   }
 }

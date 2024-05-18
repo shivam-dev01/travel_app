@@ -93,39 +93,41 @@ export default function InputForm() {
     <div className="form-div  h-full boldFontFamily">
       <h2>Drop Us Your Basic Details We Will Connect You?</h2>
       <input
-        className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
+        className="bg-[#EFEFEF] p-2 w-full h-[44.68px] text-xs lg:h-[55px] mt-[15px] lg:mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Full Name"
         onChange={onChangeFullName}
         value={inputData.fullName}
       ></input>
 
       <input
-        className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
+        className="bg-[#EFEFEF] p-2 w-full h-[44.68px] text-xs lg:h-[55px] mt-[15px] lg:mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Phone Number"
         onChange={onChangePhone}
         value={inputData.phone}
       ></input>
 
       <input
-        className="bg-[#EFEFEF] p-2 w-full h-[55px] mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
+        className="bg-[#EFEFEF] p-2 w-full h-[44.68px] text-xs lg:h-[55px] mt-[15px] lg:mt-5 rounded-lg meduimFontFamily pl-5 text-black placeholder-black focus:outline-skyBule"
         placeholder="Email Address"
         onChange={onChangeEmail}
         value={inputData.email}
       ></input>
 
       {error && (
-        <div className="boldFontFamily mt-2 text-red">Error: {error}</div>
+        <div className="boldFontFamily mt-2 text-red text-xs">
+          Error: {error}
+        </div>
       )}
 
-     <div className="flex justify-center">
-     <button
-        className="bg-[#3B9AA4]  p-2 w-1/2 lg:w-full mt-8 h-14 rounded-full text-[#fff]"
-        disabled={loading}
-        onClick={handleSubmit}
-      >
-        {loading ? "Loading..." : "Submit"}
-      </button>
-     </div>
+      <div className="flex justify-center">
+        <button
+          className="bg-[#3B9AA4] w-full mt-8 h-[44.68px] lg:h-[55px] rounded-full text-[#fff]"
+          disabled={loading}
+          onClick={handleSubmit}
+        >
+          {loading ? "Loading..." : "Submit"}
+        </button>
+      </div>
       <ToastContainer />
     </div>
   );

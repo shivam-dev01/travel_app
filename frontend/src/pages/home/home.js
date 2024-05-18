@@ -68,10 +68,10 @@ export default function Home() {
         ref={sectionRefs.current[1]}
         className="middleContentBody"
       >
-        <h1 className="extraBoldFontFamily text-5xl mt-56 md:mt-16 leading-none">
+        <h1 className="extraBoldFontFamily text-center text-5xl mt-56 md:mt-16 leading-none">
           Welcome To India
         </h1>
-        <p className="regularFontFamily text-2xl mt-5 leading-none">
+        <p className="regularFontFamily text-2xl text-center lg:text-[48px] mt-5 leading-none">
           Your ultimate destination for unforgettable travel experiences.
         </p>
         <p className="regularFontFamily text-[16px] mt-6 max-w-[1051px] text-center">
@@ -168,7 +168,10 @@ export default function Home() {
       <div id="section6" ref={sectionRefs.current[5]} className="bg-skyBlue100">
         {chooseBanner.map((item, index) => {
           return (
-            <div key={index} className="flex flex-col gap-3 md:flex-row justify-between p-8">
+            <div
+              key={index}
+              className="flex flex-col gap-3 md:flex-row justify-between p-8"
+            >
               <div className="px-4 md:px-16 flex flex-col justify-center">
                 <p className="meduimFontFamily text-xs text-black">
                   {item.topHeader}
