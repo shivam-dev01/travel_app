@@ -16,13 +16,17 @@ import Brochure from "./pages/brochure/brochure";
 import TopHeader from "./components/topHeader/topHeader";
 import TrippDetails from "./pages/tripDetails/tripDetails";
 import Policy from "./pages/policy/policy";
+import { useState } from "react";
+import Sidenav from "./components/sideNav/Sidenav";
 
 function App() {
+  const [toggleSidebar, setToggleSidebar] = useState(false);
   return (
     <div className="appBody">
       <Router>
         <TopHeader />
-        <Header />
+        {toggleSidebar && <Sidenav setToggleSidebar={setToggleSidebar} />}
+        <Header setToggleSidebar={setToggleSidebar} />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />

@@ -27,7 +27,7 @@ export default function Brochure() {
         <h1 className="extraBoldFontFamily text-black text-xl md:text-5xl">
           Explore our E-Brochure
         </h1>
-        <p className="regularFontFamily text-black text-lg md:text-base text-center mt-3">
+        <p className="regularFontFamily text-black text-sm lg:text-lg md:text-base text-center mt-3">
           At Tripp Karo, we assure you the finest travel experiences,
           meticulously tailored to your preferences. Our transparent policies
           underscore our commitment to customer satisfaction. Whether you’re a

@@ -11,7 +11,7 @@ export default function Faqs() {
   };
 
   return (
-    <div className="mt-14 bg-[#ECF5F6] py-[54px] px-[33px]">
+    <div className="mt-14 bg-[#ECF5F6] py-5 lg:py-[54px] px-4 lg:px-[33px]">
       <div className=" extraBoldFontFamily text-heading text-[25px] md:text-[45px] leading-[55px] font-semibold">
         FAQ’s
       </div>
@@ -23,9 +23,11 @@ export default function Faqs() {
             onClick={() => toggleAnswer(index)}
           >
             <div className="m-0 p-0 max-w-[1200px]">
-              <div className="flex  gap-2">
+              <div className="flex items-baseline gap-2">
                 <div className="text-md md:text-3xl font-bold text-[#acacac]">{`0${item.number}`}</div>
-                <h2 className="text-md md:text-2xl font-bold ml-2 ">{item.question}</h2>
+                <h2 className="text-md md:text-2xl font-bold ml-2 ">
+                  {item.question}
+                </h2>
               </div>
               <div
                 className={`answerAnimation ${
@@ -36,12 +38,12 @@ export default function Faqs() {
               </div>
             </div>
 
-            <div className="cursor-pointer" onClick={() => toggleAnswer(index)}>
+            {/* <div className="cursor-pointer" onClick={() => toggleAnswer(index)}>
               <img
                 src={openIndex === index ? cross : plus}
                 alt={openIndex === index ? "Collapse" : "Expand"}
               />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

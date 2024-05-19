@@ -6,12 +6,12 @@ import logoImage from "../assets/image/tippKaroLogo.png";
 import chevron from "../assets/svg/chevron.svg";
 import useTrippStore from "../zustand/trippStore";
 import upDown from "../assets/svg/upDown.svg";
-import bars from '../assets/svg/bars.svg';
+import bars from "../assets/svg/bars.svg";
 
-export default function Header() {
+export default function Header({ setToggleSidebar }) {
   const { destination, getBannerData } = useTrippStore((state) => state);
   const [menu, setMenu] = useState(routes);
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -153,12 +153,15 @@ export default function Header() {
         </div> */}
 
         <div className="md:hidden">
-          <img  onClick={()=>setIsPopoverOpen(!isPopoverOpen)} alt="menu" className="pr-8 cursor-pointer " src={bars}/>
+          <img
+            // onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+            onClick={() => setToggleSidebar(true)}
+            alt="menu"
+            className="pr-8 cursor-pointer "
+            src={bars}
+          />
         </div>
       </div>
     </header>
   );
 }
-
-
-
