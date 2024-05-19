@@ -13,6 +13,8 @@ export default function Header() {
   const [menu, setMenu] = useState(routes);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -23,23 +25,23 @@ export default function Header() {
     }
   }, [destination]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setActiveIndex(null);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (modalRef.current && !modalRef.current.contains(event.target)) {
+  //       setActiveIndex(null);
+  //     }
+  //   };
 
-    if (activeIndex !== null) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+  //   if (activeIndex !== null) {
+  //     document.addEventListener("mousedown", handleClickOutside);
+  //   } else {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   }
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [activeIndex]);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [activeIndex]);
 
   const updateDestination = async () => {
     try {
@@ -69,6 +71,10 @@ export default function Header() {
   function closeModal() {
     setActiveIndex(null);
   }
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header className="top-header">
@@ -142,6 +148,10 @@ export default function Header() {
         >
           Book Now
         </Link>
+        {/* <div className="md:hidden">
+          <img alt="menu" className="pr-8 cursor-pointer " src={bars} />
+        </div> */}
+
         <div className="md:hidden">
           <img  onClick={()=>setIsPopoverOpen(!isPopoverOpen)} alt="menu" className="pr-8 cursor-pointer " src={bars}/>
         </div>

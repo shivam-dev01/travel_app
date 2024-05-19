@@ -20,14 +20,21 @@ const destinationController = {
     createDestination: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const bodyData = req.body;
-            console.log('----bodyData----', bodyData);
+            console.log("----bodyData-Des---", bodyData);
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
+            }
+            const existingRecord = yield destination_1.DestinationModel.findOne({
+                name: bodyData.name,
+            });
+            if (existingRecord) {
+                throw new Error("Destination with the same name already exists.");
             }
             const result = yield destination_1.DestinationModel.create(bodyData);
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.destination.create);
         }
         catch (error) {
+            console.log("----errorMessahe-----", error === null || error === void 0 ? void 0 : error.message);
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
         }
     }),
@@ -43,9 +50,9 @@ const destinationController = {
     getDestinationById: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { bannerId } = req.query;
-            console.log('----bannerId----', bannerId);
+            console.log("----bannerId----", bannerId);
             if (!bannerId) {
-                throw new Error('Banner Id is missing.');
+                throw new Error("Banner Id is missing.");
             }
             const result = yield banners_1.BannerModel.findById(bannerId);
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
@@ -56,7 +63,7 @@ const destinationController = {
     }),
     updateDestination: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            console.log('---reqBody---', req.body);
+            console.log("---reqBody---", req.body);
         }
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
@@ -68,6 +75,6 @@ const destinationController = {
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
         }
-    })
+    }),
 };
 exports.default = destinationController;

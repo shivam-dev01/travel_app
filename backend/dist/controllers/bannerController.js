@@ -35,7 +35,7 @@ const bannerController = {
                 fileData.file = yield fileHandler_1.default.uploadTos3(file, S3folderType_1.S3folderTypes.BANNERS);
                 fileData.fileType = file.mimetype;
             }
-            const result = yield banners_1.BannerModel.create(Object.assign(Object.assign({}, bodyData), fileData));
+            const result = yield banners_1.BannerModel.create(Object.assign({}, bodyData));
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.create);
         }
         catch (error) {
