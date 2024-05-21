@@ -9,10 +9,10 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const credentials = {
     accessKeyId: process.env.ACCESS_KEY,
-    secretAccessKey: process.env.SECRET_ACCESS_KEY
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
 };
 const region = process.env.S3_REGION;
 exports.s3Client = new client_s3_1.S3Client({
     region,
-    credentials
+    credentials,
 });

@@ -33,8 +33,8 @@ const destinationController = {
     }),
     getDestination: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield banners_1.BannerModel.find();
-            return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
+            const result = yield destination_1.DestinationModel.find();
+            return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.destination.get);
         }
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);

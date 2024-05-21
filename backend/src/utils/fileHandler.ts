@@ -1,41 +1,63 @@
-import dotenv from 'dotenv'
+import dotenv from "dotenv";
 import { Upload } from "@aws-sdk/lib-storage";
 import { s3Client } from "./s3Client";
+import {
+  DeleteObjectCommand,
+  DeleteObjectCommandInput,
+} from "@aws-sdk/client-s3";
 
-dotenv.config()
+dotenv.config();
 
 const fileHandler = {
-    uploadTos3: async (fileData: any, prifix?: String) => {
-        try {
+  uploadTos3: async (fileData: any, prifix?: String) => {
+    try {
+      let file: string | null = null;
 
-            let file: string | null = null;
+      const s3Key = prifix
+        ? `${prifix}/${fileData.originalname.trim()}`
+        : `common/${fileData.originalname.trim()}`;
 
-            const s3Key = prifix ? `${prifix}/${fileData.originalname.trim()}` : `common/${fileData.originalname.trim()}`;
+      const upload = new Upload({
+        client: s3Client,
+        params: {
+          ACL: "public-read",
+          Bucket: process.env.S3_BUCKET,
+          Key: s3Key,
+          Body: fileData.buffer,
+          ContentType: fileData.mimetype,
+        },
+      });
 
+      await upload.done();
 
-            const upload = new Upload({
-                client: s3Client,
-                params: {
-                    ACL: 'public-read',
-                    Bucket: process.env.S3_BUCKET,
-                    Key: s3Key,
-                    Body: fileData.buffer,
-                    ContentType: fileData.mimetype,
-                },
-            });
+      file = `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com/${s3Key}`;
 
-            await upload.done()
+      console.log("---s3Url---", file);
 
-            file = `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com/${s3Key}`;
+      return file;
+    } catch (error) {
+      console.log("Error in fileHandler.upload", error);
+      throw new Error(`Problem with file upload! ${error}`);
+    }
+  },
 
-            console.log('---s3Url---', file)
+  deleteFromS3: async (key: string | undefined) => {
+    try {
+      const params: DeleteObjectCommandInput = {
+        Bucket: "trippkaro",
+        Key: key,
+      };
 
-            return file;
-        } catch (error) {
-            console.log("Error in fileHandler.upload", error);
-            throw new Error(`Problem with file upload! ${error}`);
-        }
-    },
+      const command = new DeleteObjectCommand(params);
+      const deleteResult = await s3Client.send(command);
+
+      console.log("----deleteResult-----", deleteResult);
+      return true;
+    } catch (error) {
+      console.log("Error in fileHandler.upload", error);
+      throw new Error(`Problem with file delete! ${error}`);
+    }
+  },
 };
 
 export default fileHandler;

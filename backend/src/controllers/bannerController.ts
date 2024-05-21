@@ -47,9 +47,7 @@ const bannerController = {
 
   getBanner: async (req: Request, res: Response) => {
     try {
-      const result = await BannerModel.find({ isVisible: true }).populate(
-        "destination"
-      );
+      const result = await BannerModel.find().populate("destination");
 
       return httpResponse.sendResponse(
         res,
@@ -123,6 +121,34 @@ const bannerController = {
 
   deleteBanner: async (req: Request, res: Response) => {
     try {
+      const { bannerId } = req.query;
+
+      console.log("----bannerIdBack----", bannerId);
+
+      if (!bannerId) {
+        throw new Error("Banner Id is missing.");
+      }
+
+      const result = await BannerModel.findByIdAndDelete(bannerId);
+
+      const s3Key = result?.file.replace(
+        "https://trippkaro.s3.ap-south-1.amazonaws.com/",
+        ""
+      );
+      console.log("----result----", s3Key);
+
+      await fileHandler.deleteFromS3(s3Key);
+
+      if (!result) {
+        throw new Error("Banner not found or already deleted.");
+      }
+
+      return httpResponse.sendResponse(
+        res,
+        "result",
+        200,
+        messages.success.banner.delete
+      );
     } catch (error: any) {
       httpResponse.sendErrorResponse(res, error, 400, error?.message);
     }

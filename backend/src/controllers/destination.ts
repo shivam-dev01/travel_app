@@ -98,5 +98,63 @@ const destinationController = {
     }
 }
 
+<<<<<<< Updated upstream
 
 export default destinationController
+=======
+  getDestination: async (req: Request, res: Response) => {
+    try {
+      const result = await DestinationModel.find();
+
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.destination.get
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
+
+  getDestinationById: async (req: Request, res: Response) => {
+    try {
+      const { bannerId } = req.query;
+
+      console.log("----bannerId----", bannerId);
+
+      if (!bannerId) {
+        throw new Error("Banner Id is missing.");
+      }
+
+      const result = await BannerModel.findById(bannerId);
+
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.banner.get
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
+
+  updateDestination: async (req: Request, res: Response) => {
+    try {
+      console.log("---reqBody---", req.body);
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
+
+  deleteDestination: async (req: Request, res: Response) => {
+    try {
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
+  },
+};
+
+export default destinationController;
+>>>>>>> Stashed changes
