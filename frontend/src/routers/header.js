@@ -56,6 +56,8 @@ export default function Header({ setToggleSidebar }) {
   };
 
   const onToggleMenu = (index) => {
+    console.log("---------->index----------------", index);
+
     setMenu((prevMenu) =>
       prevMenu.map((item, i) => ({
         ...item,
