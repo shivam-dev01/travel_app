@@ -71,9 +71,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 248px;
+  /* height: 248px; */
   width: 100%;
-  margin-top: 80px;
+  height: fit-content;
+  /* margin-top: 80px; */
 }
 .middleContentBodyTwo {
   display: flex;
@@ -82,7 +83,7 @@
   flex-direction: column;
   height: 248px;
   width: 100%;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 .contentDesc {
@@ -164,9 +165,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 248px;
+  /* height: 248px; */
   width: 100%;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 .contentDesc {

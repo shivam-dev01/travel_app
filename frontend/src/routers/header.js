@@ -11,7 +11,7 @@ import bars from "../assets/svg/bars.svg";
 export default function Header({ setToggleSidebar }) {
   const { destination, getBannerData } = useTrippStore((state) => state);
   const [menu, setMenu] = useState(routes);
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  // const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -78,7 +78,7 @@ export default function Header({ setToggleSidebar }) {
 
   return (
     <header className="top-header">
-      <div className="container mx-auto  flex justify-between items-center pt-[60px] pb-[15px] md:pt-[80px] md:pb-[35px]">
+      <div className="container mx-auto flex justify-between items-center pt-[60px] pb-[15px] md:pt-[80px] md:pb-[35px]">
         <Link to={"/"} onClick={() => onToggleMenu(0)}>
           <img
             src={logoImage}
@@ -87,7 +87,7 @@ export default function Header({ setToggleSidebar }) {
           />
         </Link>
 
-        <div className="hidden md:flex text-[12px]">
+        <div className="hidden  md:flex text-[12px]">
           {menu.map((item, index) => {
             return (
               <div key={index} className="relative">
@@ -157,7 +157,7 @@ export default function Header({ setToggleSidebar }) {
             // onClick={() => setIsPopoverOpen(!isPopoverOpen)}
             onClick={() => setToggleSidebar(true)}
             alt="menu"
-            className="pr-8 cursor-pointer "
+            className="pr-4 cursor-pointer "
             src={bars}
           />
         </div>
