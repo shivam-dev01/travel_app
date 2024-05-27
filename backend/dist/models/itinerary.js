@@ -14,7 +14,7 @@ const itinerarySchema = new mongoose_1.Schema({
                 themes: { type: String, required: false },
                 accommodation: { type: String, required: false },
             },
-        }
-    ]
+        },
+    ],
 });
 exports.ItineraryModel = (0, mongoose_1.model)(IDatabaseSchema_1.IDatabaseSchema.ITINERY_DETAILS, itinerarySchema);

@@ -44,7 +44,7 @@ const bannerController = {
     }),
     getBanner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield banners_1.BannerModel.find({ isVisible: true }).populate("destination");
+            const result = yield banners_1.BannerModel.find().populate("destination");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.get);
         }
         catch (error) {
@@ -92,6 +92,19 @@ const bannerController = {
     }),
     deleteBanner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
+            const { bannerId } = req.query;
+            console.log("----bannerIdBack----", bannerId);
+            if (!bannerId) {
+                throw new Error("Banner Id is missing.");
+            }
+            const result = yield banners_1.BannerModel.findByIdAndDelete(bannerId);
+            const s3Key = result === null || result === void 0 ? void 0 : result.file.replace("https://trippkaro.s3.ap-south-1.amazonaws.com/", "");
+            console.log("----result----", s3Key);
+            yield fileHandler_1.default.deleteFromS3(s3Key);
+            if (!result) {
+                throw new Error("Banner not found or already deleted.");
+            }
+            return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.banner.delete);
         }
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);

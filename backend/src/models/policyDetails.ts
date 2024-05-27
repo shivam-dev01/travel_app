@@ -11,6 +11,7 @@ const policyDetailsSchema = new Schema({
   Charges: { type: [String], required: true },
   tabName: { type: String, required: false },
   tabDetails: { type: String, required: false },
+  name: { type: String, required: true },
 });
 
 export const PolicyModel = model<PolicyDetailsProps>(

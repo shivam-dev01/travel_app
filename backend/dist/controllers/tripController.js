@@ -22,6 +22,7 @@ const tripController = {
         try {
             const file = req.file;
             const bodyData = req.body;
+            console.log("------bodyData------", JSON.stringify(bodyData, null, 2));
             if (!bodyData || !Object.keys(bodyData).length) {
                 throw new Error("No data provided.");
             }
@@ -94,10 +95,18 @@ const tripController = {
         }
         catch (error) { }
     }),
-    deleteTrip: () => __awaiter(void 0, void 0, void 0, function* () {
+    deleteTrip: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
+            const { trippId } = req.query;
+            if (!trippId) {
+                throw new Error("Tripp Id is missing.");
+            }
+            const result = yield tripDetails_1.TripModel.findByIdAndDelete(trippId);
+            return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.trip.delete);
         }
-        catch (error) { }
+        catch (error) {
+            httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
+        }
     }),
 };
 exports.default = tripController;

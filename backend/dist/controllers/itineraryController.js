@@ -19,9 +19,9 @@ const itineraryController = {
     createitinerary: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const bodyData = req.body;
-            console.log('----bodyData----', bodyData);
+            console.log("----bodyData----", bodyData);
             if (!bodyData || !Object.keys(bodyData).length) {
-                throw new Error('No data provided.');
+                throw new Error("No data provided.");
             }
             const result = yield itinerary_1.ItineraryModel.create(Object.assign({}, bodyData));
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.itinerary.create);
@@ -32,7 +32,7 @@ const itineraryController = {
     }),
     getitinerary: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const result = yield itinerary_1.ItineraryModel.find().populate("destination");
+            const result = yield itinerary_1.ItineraryModel.find();
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.itinerary.get);
         }
         catch (error) {
@@ -42,9 +42,9 @@ const itineraryController = {
     getItineraryById: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { bannerId } = req.query;
-            console.log('----bannerId----', bannerId);
+            console.log("----bannerId----", bannerId);
             if (!bannerId) {
-                throw new Error('Banner Id is missing.');
+                throw new Error("Banner Id is missing.");
             }
             const result = yield itinerary_1.ItineraryModel.findById(bannerId).populate("destination");
             return httpsResponse_1.default.sendResponse(res, result, 200, messages_1.default.success.itinerary.get);
@@ -55,7 +55,7 @@ const itineraryController = {
     }),
     updateItinerary: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            console.log('---reqBody---', req.body);
+            console.log("---reqBody---", req.body);
         }
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
@@ -67,6 +67,6 @@ const itineraryController = {
         catch (error) {
             httpsResponse_1.default.sendErrorResponse(res, error, 400, error === null || error === void 0 ? void 0 : error.message);
         }
-    })
+    }),
 };
 exports.default = itineraryController;

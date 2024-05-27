@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { BannerProps } from "../types/banners";
 import { BannerModel } from "../models/banners";
 import httpResponse from "../utils/httpsResponse";
 import messages from "../config/messages";
@@ -41,13 +40,13 @@ const destinationController = {
 
   getDestination: async (req: Request, res: Response) => {
     try {
-      const result = await BannerModel.find();
+      const result = await DestinationModel.find();
 
       return httpResponse.sendResponse(
         res,
         result,
         200,
-        messages.success.banner.get
+        messages.success.destination.get
       );
     } catch (error: any) {
       httpResponse.sendErrorResponse(res, error, 400, error?.message);

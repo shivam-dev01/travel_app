@@ -11,6 +11,7 @@ const tripController = {
     try {
       const file = req.file;
       const bodyData: TripDetailsProps = req.body;
+      console.log("------bodyData------", JSON.stringify(bodyData, null, 2));
 
       if (!bodyData || !Object.keys(bodyData).length) {
         throw new Error("No data provided.");
@@ -117,9 +118,24 @@ const tripController = {
     } catch (error) {}
   },
 
-  deleteTrip: async () => {
+  deleteTrip: async (req: Request, res: Response) => {
     try {
-    } catch (error) {}
+      const { trippId } = req.query;
+      if (!trippId) {
+        throw new Error("Tripp Id is missing.");
+      }
+
+      const result = await TripModel.findByIdAndDelete(trippId);
+
+      return httpResponse.sendResponse(
+        res,
+        result,
+        200,
+        messages.success.trip.delete
+      );
+    } catch (error: any) {
+      httpResponse.sendErrorResponse(res, error, 400, error?.message);
+    }
   },
 };
 

@@ -29,6 +29,7 @@ const tripDetailsSchema = new Schema({
   subHeader: { type: String, required: true },
   ctaSecondary: { type: String, required: true },
   pdfFile: { type: String, required: true },
+  bannerImage: { type: String, required: true },
 });
 
 export const TripModel = model<TripDetailsProps>(
