@@ -48,8 +48,10 @@ export default function Home() {
                 alt="Home"
                 className="homeImageBanner"
               />
-              <div className="homeContent">
-                <h1 className="headerText text-nowrap">{item.header}</h1>
+              <div className="homeContent top-[50px] lg:top-[210px]">
+                <h1 className="headerText text-nowrap text-[31.28px] md:text-[55.97px] lg:text-[108px]">
+                  {item.header}
+                </h1>
                 <p className="subHeaderText">{item.subHeader}</p>
                 <button
                   className="bookNowBtn bg-white outline-none border-none"
@@ -66,15 +68,15 @@ export default function Home() {
       <div
         id="section2"
         ref={sectionRefs.current[1]}
-        className="middleContentBody"
+        className="middleContentBody w-full lg:w-[300px] px-4 md:px-[33px] text-center"
       >
-        <h1 className="extraBoldFontFamily text-center text-5xl mt-56 md:mt-16 leading-none">
+        <div className="extraBoldFontFamily text-center text-5xl mt-5 md:mt-16 leading-none">
           Welcome To India
-        </h1>
+        </div>
         <p className="regularFontFamily text-2xl text-center lg:text-[48px] mt-5 leading-none">
           Your ultimate destination for unforgettable travel experiences.
         </p>
-        <p className="regularFontFamily text-[16px] mt-6 max-w-[1051px] text-center">
+        <p className="regularFontFamily text-[16px] mt-6 text-center">
           Whether you’re a wanderlust-filled adventurer, a culture enthusiast,
           or a nature lover, we are here to cater to your every travel desire.
           With Touriist.in, embark on a journey of discovery as we curate
@@ -90,13 +92,13 @@ export default function Home() {
       <div
         id="section3"
         ref={sectionRefs.current[2]}
-        className="w-full flex flex-col md:flex-row mt-[317px]  md:mt-20 gap-5 pl-0 pr-0 md:pl-[33px] md:pr-[33px]"
+        className="w-full flex flex-col md:flex-row mt-5  md:mt-20 gap-5 pl-0 pr-0 md:pl-[33px] md:pr-[33px]"
       >
         {welcomeBanner.map((item, index) => {
           return (
             <div
               key={index}
-              className="flex-1  m-0 px-2 md:p-0  rounded-3xl overflow-hidden relative lg:h-[650px]"
+              className="flex-1  m-0 px-4 md:p-0  rounded-3xl overflow-hidden relative lg:h-[650px]"
             >
               <img src={replaceUrl(item.file)} className="w-full h-full" />
 
@@ -214,21 +216,27 @@ export default function Home() {
 
       <Testimonials />
 
-      <div className="w-[100%] h-[745] mt-20 overflow-hidden relative flex justify-center pl-[33px] pr-[33px]">
+      <div className="w-[100%] h-[215.82px] lg:h-[745px] mt-20 overflow-hidden relative flex justify-center px-4 lg:px-[33px]">
         <img
           src={footerImage}
           alt="Loading..."
           className="w-[100%] h-[100%] rounded-3xl"
         />
         <button
-          className="absolute bottom-40 meduimFontFamily bg-white text-black px-9 py-4 rounded-full"
+          className="absolute bottom-10 lg:bottom-40 meduimFontFamily w-[72.91px] h-[23px] md:w-[102.83px] md:h-[32.44px] lg:w-[145.91px] lg:h-[46.03px] text-[5.84px] md:text-[16.37px] lg:text-[11.69px] bg-white text-black rounded-full"
           onClick={() => onBookNow(navigation)}
         >
           Book Now
         </button>
-        <div className="flex absolute bottom-10">
-          <img src={whiteCircle} className="w-14 h-14 mr-7 cursor-pointer" />
-          <img src={skyCircle} className="w-14 h-14 cursor-pointer" />
+        <div className="flex justify-center items-center gap-4 lg:gap-10 absolute bottom-2 lg:bottom-10">
+          <img
+            src={whiteCircle}
+            className="w-[21.85px] h-[21.85px] md:w-[31.52px] md:h-[31.52px] lg:w-14 lg:h-14 cursor-pointer"
+          />
+          <img
+            src={skyCircle}
+            className="w-[21.85px] h-[21.85px] md:w-[31.52px] md:h-[31.52px] lg:w-14 lg:h-14 cursor-pointer"
+          />
         </div>
       </div>
       <Footer />
